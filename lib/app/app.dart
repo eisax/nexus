@@ -54,13 +54,14 @@ class _MyAppState extends State<MyApp> {
               ),
               scaffoldBackgroundColor: pageBackgroundColor,
               colorScheme: Theme.of(context).colorScheme.copyWith(
-                 primary: primaryColor,
-                  onPrimary: onPrimaryColor,
-                   secondary: secondaryColor,
-                   surface: backgroundColor,
-                    error: errorColor,
-                    onSecondary: onSecondaryColor,
-              )
+                primary: primaryColor,
+                onPrimary: onPrimaryColor,
+                secondary: secondaryColor,
+                surface: backgroundColor,
+                error: errorColor,
+                onSecondary: onSecondaryColor,
+                onSurface: onBackgroundColor,
+              ),
             ),
           );
         },
