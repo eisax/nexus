@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:nexus/cubits/appLocalizationCubit.dart';
 import 'package:nexus/ui/styles/colors.dart';
 
@@ -25,7 +26,7 @@ Future<void> initializeApp() async {
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
-  
+  await Hive.initFlutter();
 
   runApp(const MyApp());
 }
