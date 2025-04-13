@@ -17,13 +17,18 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   void navigateToNextScreen() async {
     Get.offNamed(Routes.home);
   }
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       body: Center(child: Text(Utils.getTranslatedLabel(selectAnyKey))),
     );
