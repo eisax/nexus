@@ -1,1 +1,1 @@
-const String privacyPolicyKey = "privacyPolicy";
+const String selectAnyKey = "selectAny";
