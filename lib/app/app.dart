@@ -29,7 +29,6 @@ class MyHttpOverrides extends HttpOverrides {
 Future<void> initializeApp() async {
   WidgetsFlutterBinding.ensureInitialized();
   HttpOverrides.global = MyHttpOverrides();
-  //Register the licence of font
   LicenseRegistry.addLicense(() async* {
     final license = await rootBundle.loadString('google_fonts/OFL.txt');
     yield LicenseEntryWithLineBreaks(['google_fonts'], license);
@@ -44,9 +43,6 @@ Future<void> initializeApp() async {
   );
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-
-  // await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  await AppTranslation.loadJsons();
 
   await Hive.initFlutter();
   await Hive.openBox(showCaseBoxKey);
