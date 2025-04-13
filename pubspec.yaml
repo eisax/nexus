@@ -12,6 +12,7 @@ dependencies:
   flutter_bloc: ^9.1.0
   get:
   google_fonts: ^6.2.1
+  hive: ^2.2.3
 
 dev_dependencies:
   flutter_test:
