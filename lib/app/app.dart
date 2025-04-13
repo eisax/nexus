@@ -162,45 +162,8 @@ class _MyAppState extends State<MyApp> {
         BlocProvider<ExamDetailsCubit>(
           create: (context) => ExamDetailsCubit(StudentRepository()),
         ),
-        BlocProvider<PostFeesPaymentCubit>(
-          create: (context) => PostFeesPaymentCubit(StudentRepository()),
-        ),
-        BlocProvider<ResultTabSelectionCubit>(
-          create: (_) => ResultTabSelectionCubit(),
-        ),
-        BlocProvider<ReportTabSelectionCubit>(
-          create: (_) => ReportTabSelectionCubit(),
-        ),
-        BlocProvider<OnlineExamReportCubit>(
-          create: (_) => OnlineExamReportCubit(ReportRepository()),
-        ),
-        BlocProvider<AssignmentReportCubit>(
-          create: (_) => AssignmentReportCubit(ReportRepository()),
-        ),
-        BlocProvider<ExamTabSelectionCubit>(
-          create: (_) => ExamTabSelectionCubit(),
-        ),
-        BlocProvider<OnlineExamQuestionsCubit>(
-          create: (_) => OnlineExamQuestionsCubit(OnlineExamRepository()),
-        ),
-        BlocProvider<ExamsOnlineCubit>(
-          create: (_) => ExamsOnlineCubit(OnlineExamRepository()),
-        ),
-        BlocProvider<ResultsOnlineCubit>(
-          create: (_) => ResultsOnlineCubit(ResultRepository()),
-        ),
-        BlocProvider<AssignmentsCubit>(
-          create: (_) => AssignmentsCubit(AssignmentRepository()),
-        ),
-        BlocProvider<SchoolConfigurationCubit>(
-          create: (_) => SchoolConfigurationCubit(SchoolRepository()),
-        ),
-        BlocProvider<ChildFeeDetailsCubit>(
-          create: (_) => ChildFeeDetailsCubit(FeeRepository()),
-        ),
-        BlocProvider<SocketSettingCubit>(
-          create: (context) => SocketSettingCubit(),
-        ),
+        
+       
       ],
       child: Builder(
         builder: (context) {
