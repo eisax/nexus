@@ -38,6 +38,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text("Working")));
+    return GetMaterialApp(child: Scaffold(body: Center(child: Text("Working"))));
   }
 }
