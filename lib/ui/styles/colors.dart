@@ -7,3 +7,4 @@ const Color backgroundColor = Color(0xfff6f6f6);
 
 const Color errorColor = Color(0xffff6769);
 const Color onBackgroundColor = Color(0xff484848);
+const Color onPrimaryColor = Color(0xff3bcc97);
