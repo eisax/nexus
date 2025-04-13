@@ -32,7 +32,6 @@ Future<void> initializeApp() async {
   await Hive.openBox(authBoxKey);
   await Hive.openBox(notificationsBoxKey);
   await Hive.openBox(settingsBoxKey);
-  await Hive.openBox(studentSubjectsBoxKey);
   await initializeDateFormatting('en_US', null);
 
   runApp(const MyApp());
