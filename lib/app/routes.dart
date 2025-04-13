@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:nexus/ui/screens/splashScreen.dart';
 
 class Routes {
   static const String splash = "/splash";
