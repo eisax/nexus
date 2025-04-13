@@ -11,4 +11,8 @@ class SettingsRepository {
     return Hive.box(settingsBoxKey).get(currentLanguageCodeKey) ??
         defaultLanguageCode;
   }
+
+  bool getAllowNotification() {
+    return Hive.box(settingsBoxKey).get(allowNotificationKey) ?? true;
+  }
 }
