@@ -6,6 +6,7 @@ import 'package:nexus/app/routes.dart';
 import 'package:nexus/cubits/appLocalizationCubit.dart';
 import 'package:nexus/data/repositories/settingsRepository.dart';
 import 'package:nexus/ui/styles/colors.dart';
+import 'package:nexus/utils/utils.dart';
 import 'package:yocut/app/appTranslation.dart';
 import 'package:yocut/cubits/assignmentReportCubit.dart';
 import 'package:yocut/cubits/assignmentsCubit.dart';
@@ -136,9 +137,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    //preloading some of the imaegs
-    precacheImage(AssetImage(Utils.getImagePath("upper_pattern.png")), context);
-    precacheImage(AssetImage(Utils.getImagePath("lower_pattern.png")), context);
+   
     return MultiBlocProvider(
       providers: [
       
