@@ -19,4 +19,6 @@ Future<void> initializeApp() async {
   );
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
+  runApp(const MyApp());
 }
