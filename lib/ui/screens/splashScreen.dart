@@ -23,6 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    navigateToNextScreen();
     return Scaffold(
       body: Center(child: Text(Utils.getTranslatedLabel(selectAnyKey))),
     );
