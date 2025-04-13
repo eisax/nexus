@@ -17,7 +17,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
 
-  void navigateToNextScreen()async {
+  void navigateToNextScreen() async {
 
     Get.offNamed(Routes.home);
   }
