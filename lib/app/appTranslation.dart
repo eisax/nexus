@@ -16,14 +16,13 @@ abstract class AppTranslation {
 
   static Future loadJsons() async {
     for (var languageCode in translationsKeys.keys) {
-      final String jsonStringValues =
-          await rootBundle.loadString('assets/languages/$languageCode.json');
-      //value from rootbundle will be encoded string
+      final String jsonStringValues = await rootBundle.loadString(
+        'assets/languages/$languageCode.json',
+      );
+
       Map<String, dynamic> mappedJson = json.decode(jsonStringValues);
 
       translationsKeys[languageCode] = mappedJson.cast<String, String>();
     }
-
-    //
   }
 }
