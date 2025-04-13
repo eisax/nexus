@@ -63,6 +63,7 @@ class _MyAppState extends State<MyApp> {
                 onSurface: onBackgroundColor,
               ),
             ),
+            locale: context.read<AppLocalizationCubit>().state.language,
           );
         },
       ),
