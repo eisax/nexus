@@ -10,5 +10,13 @@ Future<void> initializeApp() async {
     yield LicenseEntryWithLineBreaks(['google_fonts'], license);
   });
 
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarBrightness: Brightness.dark,
+      statusBarIconBrightness: Brightness.light,
+    ),
+  );
+
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 }
