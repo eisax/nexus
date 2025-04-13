@@ -1,1 +1,3 @@
-class Routes {}
+class Routes {
+  static const String splash = "/splash";
+}
