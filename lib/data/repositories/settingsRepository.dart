@@ -6,4 +6,9 @@ class SettingsRepository {
   Future<void> setAllowNotification(bool value) async {
     Hive.box(settingsBoxKey).put(allowNotificationKey, value);
   }
+
+  String getCurrentLanguageCode() {
+    return Hive.box(settingsBoxKey).get(currentLanguageCodeKey) ??
+        defaultLanguageCode;
+  }
 }
