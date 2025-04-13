@@ -23,7 +23,6 @@ Future<void> initializeApp() async {
   runApp(const MyApp());
 }
 
-
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
@@ -34,10 +33,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      body: Center(
-        child: Text(""),
-      ),
-    );
+    return Scaffold(body: Center(child: Text("Working")));
   }
 }
