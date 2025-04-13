@@ -44,7 +44,8 @@ class _MyAppState extends State<MyApp> {
       providers: [],
       child: Builder(
         builder: (context) {
-          return GetMaterialApp(debugShowCheckedModeBanner: false);
+          return GetMaterialApp(debugShowCheckedModeBanner: false,
+          theme: ,);
         },
       ),
     );
