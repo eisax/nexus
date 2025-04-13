@@ -8,6 +8,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:nexus/cubits/appLocalizationCubit.dart';
 import 'package:nexus/ui/styles/colors.dart';
 import 'package:nexus/utils/hiveBoxKeys.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 Future<void> initializeApp() async {
   WidgetsFlutterBinding.ensureInitialized();
