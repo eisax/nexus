@@ -44,7 +44,7 @@ class _MyAppState extends State<MyApp> {
       providers: [],
       child: Builder(
         builder: (context) {
-          return GetMaterialApp();
+          return GetMaterialApp(debugShowCheckedModeBanner: false);
         },
       ),
     );
