@@ -10,6 +10,7 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.8
   flutter_bloc: ^9.1.0
+  get:
 
 dev_dependencies:
   flutter_test:
