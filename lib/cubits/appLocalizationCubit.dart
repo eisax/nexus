@@ -6,4 +6,4 @@ class AppLocalizationState {
 }
 
 
-class
+class AppLocalizationCubit 
