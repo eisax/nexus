@@ -1,21 +1,37 @@
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+import 'dart:io';
+
+// import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:nexus/app/appTranslation.dart';
 import 'package:nexus/app/routes.dart';
 import 'package:nexus/cubits/appLocalizationCubit.dart';
 import 'package:nexus/data/repositories/settingsRepository.dart';
 import 'package:nexus/ui/styles/colors.dart';
 import 'package:nexus/utils/hiveBoxKeys.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/route_manager.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+
+
 import 'package:intl/date_symbol_data_local.dart';
+
+//to avoid handshake error on some devices
+class MyHttpOverrides extends HttpOverrides {
+  @override
+  HttpClient createHttpClient(SecurityContext? context) {
+    return super.createHttpClient(context)
+      ..badCertificateCallback =
+          (X509Certificate cert, String host, int port) => true;
+  }
+}
 
 Future<void> initializeApp() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  HttpOverrides.global = MyHttpOverrides();
+  //Register the licence of font
   LicenseRegistry.addLicense(() async* {
     final license = await rootBundle.loadString('google_fonts/OFL.txt');
     yield LicenseEntryWithLineBreaks(['google_fonts'], license);
@@ -31,6 +47,9 @@ Future<void> initializeApp() async {
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
+  // await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await AppTranslation.loadJsons();
+
   await Hive.initFlutter();
   await Hive.openBox(showCaseBoxKey);
   await Hive.openBox(authBoxKey);
@@ -39,6 +58,13 @@ Future<void> initializeApp() async {
   await initializeDateFormatting('en_US', null);
 
   runApp(const MyApp());
+}
+
+class GlobalScrollBehavior extends ScrollBehavior {
+  @override
+  ScrollPhysics getScrollPhysics(BuildContext context) {
+    return const BouncingScrollPhysics();
+  }
 }
 
 class MyApp extends StatefulWidget {
@@ -51,16 +77,21 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   void initState() {
+  
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+   
     return MultiBlocProvider(
       providers: [
+      
         BlocProvider<AppLocalizationCubit>(
           create: (_) => AppLocalizationCubit(SettingsRepository()),
-        ),
+        )
+        
+       
       ],
       child: Builder(
         builder: (context) {
