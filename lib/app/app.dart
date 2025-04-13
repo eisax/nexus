@@ -30,6 +30,7 @@ Future<void> initializeApp() async {
   await Hive.openBox(showCaseBoxKey);
   await Hive.openBox(authBoxKey);
   await Hive.openBox(notificationsBoxKey);
+  await Hive.openBox(settingsBoxKey);
 
   runApp(const MyApp());
 }
