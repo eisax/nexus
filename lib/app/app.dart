@@ -111,7 +111,7 @@ class _MyAppState extends State<MyApp> {
             ),
             locale: context.read<AppLocalizationCubit>().state.language,
             getPages: Routes.getPages,
-            initialRoute: Routes.splash,
+            initialRoute: Routes.home,
             fallbackLocale: const Locale("en"),
             translationsKeys: AppTranslation.translationsKeys,
           );
