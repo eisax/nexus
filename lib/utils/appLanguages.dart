@@ -1,6 +1,6 @@
 import 'package:nexus/data/models/appLanguage.dart';
 
-const String defaultLanguageCode = "en";
+const String defaultLanguageCode = "sh";
 
 const List<AppLanguage> appLanguages = [
   AppLanguage(languageCode: "en", languageName: "English"),
