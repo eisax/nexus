@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class Utils{
   static Locale getLocaleFromLanguageCode(String languageCode) {
     List<String> result = languageCode.split("-");
