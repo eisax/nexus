@@ -7,5 +7,7 @@ class AppLocalizationState {
 }
 
 
-class AppLocalizationCubit extends Cubit<AppLocalizationState>{}
+class AppLocalizationCubit extends Cubit<AppLocalizationState>{
+  AppLocalizationCubit(super.initialState);
+}
 
