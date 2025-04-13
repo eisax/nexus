@@ -145,23 +145,7 @@ class _MyAppState extends State<MyApp> {
         ),
         BlocProvider<AppLocalizationCubit>(
           create: (_) => AppLocalizationCubit(SettingsRepository()),
-        ),
-        BlocProvider<NotificationSettingsCubit>(
-          create: (_) => NotificationSettingsCubit(SettingsRepository()),
-        ),
-        BlocProvider<AuthCubit>(create: (_) => AuthCubit(AuthRepository())),
-        BlocProvider<StudentSubjectsAndSlidersCubit>(
-          create: (_) => StudentSubjectsAndSlidersCubit(),
-        ),
-        BlocProvider<NoticeBoardCubit>(
-          create: (context) => NoticeBoardCubit(AnnouncementRepository()),
-        ),
-        BlocProvider<AppConfigurationCubit>(
-          create: (context) => AppConfigurationCubit(SystemRepository()),
-        ),
-        BlocProvider<ExamDetailsCubit>(
-          create: (context) => ExamDetailsCubit(StudentRepository()),
-        ),
+        )
         
        
       ],
