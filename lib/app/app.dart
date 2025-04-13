@@ -41,7 +41,9 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [],
-      child: Builder(builder: (context){}),
+      child: Builder(builder: (context){
+        return GetMaterialApp()
+      }),
     );
   }
 }
