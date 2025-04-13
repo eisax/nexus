@@ -7,5 +7,6 @@ class Routes {
 
   static List<GetPage> getPages = [
     GetPage(name: splash, page: () => SplashScreen.routeInstance()),
+    GetPage(name: home, page: () => HomeScreen.routeInstance()),
   ];
 }
