@@ -10,6 +10,8 @@ class AppLocalizationState {
 
 class AppLocalizationCubit extends Cubit<AppLocalizationState>{
   final SettingsRepository _settingsRepository;
-  AppLocalizationCubit(this._settingsRepository):super();
+  AppLocalizationCubit(this._settingsRepository):super(
+    
+  );
 }
 
