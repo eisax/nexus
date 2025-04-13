@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:nexus/app/routes.dart';
 import 'package:nexus/utils/labelKeys.dart';
 import 'package:nexus/utils/utils.dart';
 
