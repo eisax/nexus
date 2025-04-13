@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppLocalizationState {
   final Locale language;
@@ -6,5 +7,5 @@ class AppLocalizationState {
 }
 
 
-class AppLocalizationCubit extends Cubic<AppLocalizationState>{}
+class AppLocalizationCubit extends Cubit<AppLocalizationState>{}
 
