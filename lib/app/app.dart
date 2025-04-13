@@ -6,6 +6,7 @@ import 'package:nexus/app/routes.dart';
 import 'package:nexus/cubits/appLocalizationCubit.dart';
 import 'package:nexus/data/repositories/settingsRepository.dart';
 import 'package:nexus/ui/styles/colors.dart';
+import 'package:nexus/utils/hiveBoxKeys.dart';
 import 'package:nexus/utils/utils.dart';
 import 'package:yocut/app/appTranslation.dart';
 import 'package:yocut/cubits/assignmentReportCubit.dart';
@@ -123,15 +124,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   void initState() {
-    // AwesomeNotifications().setListeners(
-    //   onActionReceivedMethod: NotificationUtility.onActionReceivedMethod,
-    //   onNotificationCreatedMethod:
-    //       NotificationUtility.onNotificationCreatedMethod,
-    //   onNotificationDisplayedMethod:
-    //       NotificationUtility.onNotificationDisplayedMethod,
-    //   onDismissActionReceivedMethod:
-    //       NotificationUtility.onDismissActionReceivedMethod,
-    // );
+  
     super.initState();
   }
 
