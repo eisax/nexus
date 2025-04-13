@@ -11,5 +11,4 @@ const String currentLanguageCodeKey = "currentLanguageCode";
 const String allowNotificationKey = "allowNotification";
 
 //Notification box keys
-
 const String notificationsBoxKey = "notifications";
