@@ -1,6 +1,8 @@
 import 'dart:io';
 
 // import 'package:awesome_notifications/awesome_notifications.dart';
+import 'package:nexus/cubits/appLocalizationCubit.dart';
+import 'package:nexus/ui/styles/colors.dart';
 import 'package:yocut/app/appTranslation.dart';
 import 'package:yocut/cubits/assignmentReportCubit.dart';
 import 'package:yocut/cubits/assignmentsCubit.dart';
