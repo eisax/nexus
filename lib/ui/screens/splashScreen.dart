@@ -16,7 +16,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
 
   void navigateToNextScreen()async {
-    
+
     if (context.read<AuthCubit>().state is Unauthenticated) {
       Get.offNamed(Routes.auth);
     } else {
@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
             : Routes.parentHome,
       );
       }else{
-        Get.offNamed(Routes.auth);
+        
       }
     }
   }
