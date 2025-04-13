@@ -25,6 +25,8 @@ Future<void> initializeApp() async {
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
+  await AppTranslation.loadJsons();
+
   runApp(const MyApp());
 }
 
