@@ -31,21 +31,6 @@ import 'package:get/route_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-import 'package:yocut/app/routes.dart';
-
-import 'package:yocut/cubits/appConfigurationCubit.dart';
-import 'package:yocut/cubits/appLocalizationCubit.dart';
-import 'package:yocut/cubits/authCubit.dart';
-import 'package:yocut/cubits/examDetailsCubit.dart';
-import 'package:yocut/cubits/examsOnlineCubit.dart';
-import 'package:yocut/cubits/noticeBoardCubit.dart';
-import 'package:yocut/cubits/notificationSettingsCubit.dart';
-import 'package:yocut/cubits/postFeesPaymentCubit.dart';
-import 'package:yocut/cubits/reportTabSelectionCubit.dart';
-import 'package:yocut/cubits/resultTabSelectionCubit.dart';
-import 'package:yocut/cubits/studentSubjectAndSlidersCubit.dart';
-import 'package:yocut/cubits/examTabSelectionCubit.dart';
-
 
 import 'package:intl/date_symbol_data_local.dart';
 
