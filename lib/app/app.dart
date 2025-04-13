@@ -72,21 +72,16 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   void initState() {
-  
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-   
     return MultiBlocProvider(
       providers: [
-      
         BlocProvider<AppLocalizationCubit>(
           create: (_) => AppLocalizationCubit(SettingsRepository()),
-        )
-        
-       
+        ),
       ],
       child: Builder(
         builder: (context) {
