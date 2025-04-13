@@ -51,6 +51,7 @@ class _MyAppState extends State<MyApp> {
               textTheme: GoogleFonts.poppinsTextTheme(
                 Theme.of(context).textTheme,
               ),
+              scaffoldBackgroundColor: pageBackgroundColor,
             ),
           );
         },
