@@ -29,6 +29,7 @@ Future<void> initializeApp() async {
   await Hive.initFlutter();
   await Hive.openBox(showCaseBoxKey);
   await Hive.openBox(authBoxKey);
+  await Hive.openBox(notificationsBoxKey);
 
   runApp(const MyApp());
 }
