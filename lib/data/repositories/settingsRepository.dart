@@ -1,4 +1,5 @@
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:nexus/utils/hiveBoxKeys.dart';
 
 class SettingsRepository {
   Future<void> setCurrentLanguageCode(String value) async {
