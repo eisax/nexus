@@ -44,8 +44,14 @@ class _MyAppState extends State<MyApp> {
       providers: [],
       child: Builder(
         builder: (context) {
-          return GetMaterialApp(debugShowCheckedModeBanner: false,
-          theme: Theme.of(context).copyWith(),);
+          return GetMaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: Theme.of(context).copyWith(
+              textTheme: GoogleFonts.poppinsTextTheme(
+                Theme.of(context).textTheme,
+              ),
+            ),
+          );
         },
       ),
     );
