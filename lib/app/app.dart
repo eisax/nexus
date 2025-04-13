@@ -1,3 +1,4 @@
 
 
 
+Future<void> initializeApp() async {}
