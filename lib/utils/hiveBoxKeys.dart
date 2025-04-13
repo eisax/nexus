@@ -9,3 +9,7 @@ const String authBoxKey = "authBox";
 const String settingsBoxKey = "settings";
 const String currentLanguageCodeKey = "currentLanguageCode";
 const String allowNotificationKey = "allowNotification";
+
+//Notification box keys
+
+const String notificationsBoxKey = "notifications";
