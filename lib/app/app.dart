@@ -13,6 +13,17 @@ import 'package:nexus/ui/styles/colors.dart';
 import 'package:nexus/utils/hiveBoxKeys.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
+
+
+class MyHttpOverrides extends HttpOverrides {
+  @override
+  HttpClient createHttpClient(SecurityContext? context) {
+    return super.createHttpClient(context)
+      ..badCertificateCallback =
+          (X509Certificate cert, String host, int port) => true;
+  }
+}
+
 Future<void> initializeApp() async {
   WidgetsFlutterBinding.ensureInitialized();
 
