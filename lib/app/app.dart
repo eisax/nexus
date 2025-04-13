@@ -53,6 +53,8 @@ Future<void> initializeApp() async {
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
+  await AppTranslation.loadJsons();
+
   await Hive.initFlutter();
   await Hive.openBox(showCaseBoxKey);
   await Hive.openBox(authBoxKey);
