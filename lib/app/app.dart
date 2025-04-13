@@ -53,7 +53,7 @@ class _MyAppState extends State<MyApp> {
                 Theme.of(context).textTheme,
               ),
               scaffoldBackgroundColor: pageBackgroundColor,
-              colorScheme: Theme.of(context).copyWith()
+              colorScheme: Theme.of(context).colorScheme.copyWith()
             ),
           );
         },
