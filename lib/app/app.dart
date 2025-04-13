@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:nexus/cubits/appLocalizationCubit.dart';
+import 'package:nexus/data/repositories/settingsRepository.dart';
 import 'package:nexus/ui/styles/colors.dart';
 import 'package:nexus/utils/hiveBoxKeys.dart';
 import 'package:intl/date_symbol_data_local.dart';
