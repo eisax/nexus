@@ -41,6 +41,14 @@ Future<void> initializeApp() async {
   runApp(const MyApp());
 }
 
+class GlobalScrollBehavior extends ScrollBehavior {
+  @override
+  ScrollPhysics getScrollPhysics(BuildContext context) {
+    return const BouncingScrollPhysics();
+  }
+}
+
+
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
