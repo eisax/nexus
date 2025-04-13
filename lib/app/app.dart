@@ -45,7 +45,7 @@ class _MyAppState extends State<MyApp> {
       child: Builder(
         builder: (context) {
           return GetMaterialApp(debugShowCheckedModeBanner: false,
-          theme: Theme.of(context).,);
+          theme: Theme.of(context).copyWith(),);
         },
       ),
     );
