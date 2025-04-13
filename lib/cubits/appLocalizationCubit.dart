@@ -6,4 +6,4 @@ class AppLocalizationState {
 }
 
 
-class AppLocalizationCubit extends Cubic<>
+class AppLocalizationCubit extends Cubic<AppLocalizationState>{}
