@@ -9,4 +9,6 @@ Future<void> initializeApp() async {
     final license = await rootBundle.loadString('google_fonts/OFL.txt');
     yield LicenseEntryWithLineBreaks(['google_fonts'], license);
   });
+
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 }
