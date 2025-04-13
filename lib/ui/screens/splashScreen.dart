@@ -17,19 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void navigateToNextScreen()async {
 
-    if (context.read<AuthCubit>().state is Unauthenticated) {
-      Get.offNamed(Routes.auth);
-    } else {
-      if(await context.read<AuthCubit>().isTokenValidt()){
-        Get.offNamed(
-        (context.read<AuthCubit>().state as Authenticated).isStudent
-            ? Routes.home
-            : Routes.parentHome,
-      );
-      }else{
-        
-      }
-    }
+    Get.offNamed(Routes.home);
   }
 
   @override
