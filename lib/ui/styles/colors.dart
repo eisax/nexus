@@ -17,3 +17,4 @@ final Color shimmerContentColor = Colors.white.withValues(alpha: 0.85);
 final Color greenColor = Colors.green;
 final Color redColor = Colors.red;
 final Color orangeColor = Colors.orange;
+final Color blueColor = Colors.blue;
