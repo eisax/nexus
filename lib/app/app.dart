@@ -54,7 +54,11 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [],
+      providers: [
+        BlocProvider<AppLocalizationCubit>(
+          create: (_) => AppLocalizationCubit(SettingsRepository()),
+        ),
+      ],
       child: Builder(
         builder: (context) {
           return GetMaterialApp(
