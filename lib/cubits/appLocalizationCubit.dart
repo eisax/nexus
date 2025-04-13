@@ -18,5 +18,12 @@ class AppLocalizationCubit extends Cubit<AppLocalizationState>{
             ),
     )
   );
+
+  void changeLanguage(String languageCode) {
+    _settingsRepository.setCurrentLanguageCode(languageCode);
+
+    Get.updateLocale(Utils.getLocaleFromLanguageCode(languageCode));
+    emit(AppLocalizationState(Utils.getLocaleFromLanguageCode(languageCode)));
+  }
 }
 
