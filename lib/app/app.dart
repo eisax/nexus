@@ -24,14 +24,14 @@ Future<void> initializeApp() async {
 }
 
 
-class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
 
   @override
-  State<MyWidget> createState() => _MyWidgetState();
+  State<MyApp> createState() => _MyAppState();
 }
 
-class _MyWidgetState extends State<MyWidget> {
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return const Placeholder();
