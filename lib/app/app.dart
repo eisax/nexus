@@ -1,6 +1,8 @@
 import 'dart:io';
 
 // import 'package:awesome_notifications/awesome_notifications.dart';
+import 'package:nexus/app/appTranslation.dart';
+import 'package:nexus/app/routes.dart';
 import 'package:nexus/cubits/appLocalizationCubit.dart';
 import 'package:nexus/ui/styles/colors.dart';
 import 'package:yocut/app/appTranslation.dart';
