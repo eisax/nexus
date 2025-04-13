@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -5,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:nexus/app/appTranslation.dart';
 import 'package:nexus/app/routes.dart';
 import 'package:nexus/cubits/appLocalizationCubit.dart';
 import 'package:nexus/data/repositories/settingsRepository.dart';
@@ -12,9 +15,21 @@ import 'package:nexus/ui/styles/colors.dart';
 import 'package:nexus/utils/hiveBoxKeys.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
+
+
+class MyHttpOverrides extends HttpOverrides {
+  @override
+  HttpClient createHttpClient(SecurityContext? context) {
+    return super.createHttpClient(context)
+      ..badCertificateCallback =
+          (X509Certificate cert, String host, int port) => true;
+  }
+}
+
 Future<void> initializeApp() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  HttpOverrides.global = MyHttpOverrides();
+  //Register the licence of font
   LicenseRegistry.addLicense(() async* {
     final license = await rootBundle.loadString('google_fonts/OFL.txt');
     yield LicenseEntryWithLineBreaks(['google_fonts'], license);
@@ -28,7 +43,17 @@ Future<void> initializeApp() async {
     ),
   );
 
+   SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarBrightness: Brightness.dark,
+      statusBarIconBrightness: Brightness.light,
+    ),
+  );
+
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
+  await AppTranslation.loadJsons();
 
   await Hive.initFlutter();
   await Hive.openBox(showCaseBoxKey);
@@ -39,6 +64,14 @@ Future<void> initializeApp() async {
 
   runApp(const MyApp());
 }
+
+class GlobalScrollBehavior extends ScrollBehavior {
+  @override
+  ScrollPhysics getScrollPhysics(BuildContext context) {
+    return const BouncingScrollPhysics();
+  }
+}
+
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -82,6 +115,9 @@ class _MyAppState extends State<MyApp> {
             ),
             locale: context.read<AppLocalizationCubit>().state.language,
             getPages: Routes.getPages,
+            initialRoute: Routes.splash,
+            fallbackLocale: const Locale("en"),
+            translationsKeys: AppTranslation.translationsKeys,
           );
         },
       ),

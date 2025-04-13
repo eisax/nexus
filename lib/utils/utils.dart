@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Utils{
   static Locale getLocaleFromLanguageCode(String languageCode) {
@@ -6,5 +7,9 @@ class Utils{
     return result.length == 1
         ? Locale(result.first)
         : Locale(result.first, result.last);
+  }
+
+  static String getTranslatedLabel(String labelKey) {
+    return labelKey.tr.trim();
   }
 }

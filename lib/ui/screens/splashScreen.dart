@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:nexus/utils/labelKeys.dart';
+import 'package:nexus/utils/utils.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -14,6 +16,8 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: Center(child: Text("Splash")));
+    return Scaffold(
+      body: Center(child: Text(Utils.getTranslatedLabel(selectAnyKey))),
+    );
   }
 }
