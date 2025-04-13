@@ -4,3 +4,5 @@ class AppLocalizationState {
   final Locale language;
   AppLocalizationState(this.language);
 }
+
+
