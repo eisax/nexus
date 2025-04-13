@@ -1,0 +1,1 @@
+const Color primaryColor = Color(0xff22577A);
