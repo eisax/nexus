@@ -1,8 +1,7 @@
-import 'package:yocut/data/repositories/settingsRepository.dart';
-import 'package:yocut/utils/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
+import 'package:nexus/data/repositories/settingsRepository.dart';
 
 class AppLocalizationState {
   final Locale language;
