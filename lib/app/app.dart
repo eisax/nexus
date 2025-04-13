@@ -1,4 +1,3 @@
-
-
-
-Future<void> initializeApp() async {}
+Future<void> initializeApp() async {
+  WidgetsFlutterBinding.ensureInitialized();
+}
