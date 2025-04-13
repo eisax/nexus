@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:nexus/app/appTranslation.dart';
 import 'package:nexus/app/routes.dart';
 import 'package:nexus/cubits/appLocalizationCubit.dart';
+import 'package:nexus/data/repositories/settingsRepository.dart';
 import 'package:nexus/ui/styles/colors.dart';
 import 'package:yocut/app/appTranslation.dart';
 import 'package:yocut/cubits/assignmentReportCubit.dart';
@@ -140,9 +141,7 @@ class _MyAppState extends State<MyApp> {
     precacheImage(AssetImage(Utils.getImagePath("lower_pattern.png")), context);
     return MultiBlocProvider(
       providers: [
-        BlocProvider<SchooldetailsCubit>(
-          create: (_) => SchooldetailsCubit(SchooldetailsfetchRepository()),
-        ),
+      
         BlocProvider<AppLocalizationCubit>(
           create: (_) => AppLocalizationCubit(SettingsRepository()),
         )
