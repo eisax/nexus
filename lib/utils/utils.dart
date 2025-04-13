@@ -7,4 +7,8 @@ class Utils{
         ? Locale(result.first)
         : Locale(result.first, result.last);
   }
+
+  static String getTranslatedLabel(String labelKey) {
+    return labelKey.tr.trim();
+  }
 }
