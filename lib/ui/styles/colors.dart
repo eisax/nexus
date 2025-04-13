@@ -11,3 +11,4 @@ const Color onPrimaryColor = Color(0xff3bcc97);
 const Color onSecondaryColor = Color(0xff57cc99);
 
 final Color shimmerBaseColor = Colors.grey.shade300;
+final Color shimmerhighlightColor = Colors.grey.shade100;
