@@ -46,20 +46,7 @@ import 'package:yocut/cubits/resultTabSelectionCubit.dart';
 import 'package:yocut/cubits/studentSubjectAndSlidersCubit.dart';
 import 'package:yocut/cubits/examTabSelectionCubit.dart';
 
-import 'package:yocut/data/repositories/announcementRepository.dart';
-import 'package:yocut/data/repositories/authRepository.dart';
-import 'package:yocut/data/repositories/onlineExamRepository.dart';
-import 'package:yocut/data/repositories/settingsRepository.dart';
-import 'package:yocut/data/repositories/studentRepository.dart';
-import 'package:yocut/data/repositories/systemInfoRepository.dart';
 
-import 'package:yocut/cubits/onlineExamQuestionsCubit.dart';
-import 'package:yocut/data/repositories/reportRepository.dart';
-import 'package:yocut/ui/styles/colors.dart';
-
-import 'package:yocut/utils/hiveBoxKeys.dart';
-import 'package:yocut/utils/notificationUtility.dart';
-import 'package:yocut/utils/utils.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 //to avoid handshake error on some devices
@@ -93,8 +80,6 @@ Future<void> initializeApp() async {
 
   // await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await AppTranslation.loadJsons();
-
-  await NotificationUtility.initializeAwesomeNotification();
 
   await Hive.initFlutter();
   await Hive.openBox(showCaseBoxKey);
