@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 
 Future<void> initializeApp() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,9 +42,11 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [],
-      child: Builder(builder: (context){
-        return GetMaterialApp()
-      }),
+      child: Builder(
+        builder: (context) {
+          return GetMaterialApp();
+        },
+      ),
     );
   }
 }
