@@ -80,6 +80,7 @@ class _MyAppState extends State<MyApp> {
               ),
             ),
             locale: context.read<AppLocalizationCubit>().state.language,
+            getPages: Routes.getPages,
           );
         },
       ),
