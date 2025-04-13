@@ -5,6 +5,10 @@ class SplashScreen extends StatefulWidget {
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
+
+  static Widget routeInstance() {
+    return SplashScreen();
+  }
 }
 
 class _SplashScreenState extends State<SplashScreen> {
