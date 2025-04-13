@@ -6,4 +6,4 @@ class AppLocalizationState {
 }
 
 
-class AppLocalizationCubit 
+class AppLocalizationCubit extends<C
