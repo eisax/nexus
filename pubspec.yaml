@@ -25,3 +25,4 @@ flutter:
   
   assets:
     - google_fonts/
+    - assets/languages/
