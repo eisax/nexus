@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:nexus/ui/screens/fullview/fullviewScreen.dart';
 import 'package:nexus/ui/screens/home/home_screen.dart';
-import 'package:nexus/ui/screens/mapview/mapviewScreen.dart';
+import 'package:nexus/ui/screens/mapview/widgets/mapViewWidget.dart';
 import 'package:nexus/ui/screens/overview/overview_screen.dart';
 import 'package:nexus/ui/screens/profileandsettings/profile_and_settings_screen.dart';
 import 'package:nexus/ui/screens/scan/scan_screen.dart';

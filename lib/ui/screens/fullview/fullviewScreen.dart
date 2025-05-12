@@ -9,7 +9,7 @@ import 'package:nexus/ui/screens/fullview/widgets/curve.dart';
 import 'package:nexus/ui/styles/style.dart';
 import 'package:nexus/utils/dimensions.dart';
 import 'package:nexus/utils/my_color.dart';
-import 'package:panorama/panorama.dart';
+import 'package:panorama_viewer_plus/panorama_viewer_plus.dart';
 
 class FullViewScreen extends StatefulWidget {
   const FullViewScreen({super.key});
@@ -36,7 +36,21 @@ class ProjectListPage extends StatefulWidget {
   _ProjectListPageState createState() => _ProjectListPageState();
 }
 
-class _ProjectListPageState extends State<ProjectListPage>
+class _ProjectListPageState extends State<ProjectListPage> {
+  @override
+  Widget build(BuildContext context) {
+    return FullControlsView();
+  }
+}
+
+class FullControlsView extends StatefulWidget {
+  const FullControlsView({super.key});
+
+  @override
+  State<FullControlsView> createState() => _FullControlsViewState();
+}
+
+class _FullControlsViewState extends State<FullControlsView>
     with WidgetsBindingObserver {
   double height = 100;
 
@@ -112,7 +126,12 @@ class _ProjectListPageState extends State<ProjectListPage>
     return Scaffold(
       body: Stack(
         children: [
-          Panorama(child: Image.asset('assets/images/panorama/pano-1.jpg')),
+          Positioned.fill(
+            child: CustomPanoramaViewer(
+              imagePath: 'assets/images/panorama/pano-1.jpg',
+              isAssetImage: true,
+            ),
+          ),
           // Top back button
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
