@@ -5,11 +5,11 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:nexus/ui/screens/components/divider/custom_spacer.dart';
 import 'package:nexus/ui/screens/components/image/custom_svg_picture.dart';
+import 'package:nexus/ui/screens/fullview/widgets/curve.dart';
 import 'package:nexus/ui/styles/style.dart';
 import 'package:nexus/utils/dimensions.dart';
 import 'package:nexus/utils/my_color.dart';
 import 'package:panorama/panorama.dart';
-import 'package:nexus/ui/screens/fullview/widgets/curved_expandable_menu.dart';
 
 class FullViewScreen extends StatefulWidget {
   const FullViewScreen({super.key});
@@ -117,50 +117,114 @@ class _ProjectListPageState extends State<ProjectListPage>
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                width: Get.width,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: Dimensions.space15,
-                    vertical: Dimensions.space15,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Stack(
-                        alignment: AlignmentDirectional.centerStart,
-                        children: [
-                          GestureDetector(
-                            onTap: () => Get.back(),
-                            child: Container(
-                              height: 30,
-                              width: 30,
-                              padding: EdgeInsets.all(Dimensions.space5),
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: MyColor.assetColorGray2,
-                                boxShadow: [
-                                  BoxShadow(
-                                    offset: const Offset(0, 3),
-                                    spreadRadius: 10,
-                                    blurRadius: 5,
-                                    color: MyColor.borderColor.withOpacity(
-                                      0.25,
+              SafeArea(
+                child: Container(
+                  width: Get.width,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: Dimensions.space15,
+                      vertical: Dimensions.space7,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            GestureDetector(
+                              onTap: () => Get.back(),
+                              child: Container(
+                                height: 30,
+                                width: 30,
+                                padding: EdgeInsets.all(Dimensions.space5),
+                                child: SvgPicture.asset(
+                                  "assets/images/left_arrow_simple.svg",
+                                  fit: BoxFit.cover,
+                                  color: const Color(0xFF5b6368),
+                                ),
+                              ),
+                            ),
+                            Text.rich(
+                              TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: "Chinhoyi University",
+                                    style: semiBoldLarge.copyWith(
+                                      color: MyColor.getCardBgColor(),
                                     ),
                                   ),
                                 ],
                               ),
-                              child: SvgPicture.asset(
-                                "assets/images/left_arrow_simple.svg",
+                            ),
+                          ],
+                        ),
+
+                        //3 end icons
+                        Row(
+                          children: [
+                            ShaderMask(
+                              shaderCallback: (Rect bounds) {
+                                return LinearGradient(
+                                  colors: [
+                                    Color(0xffFFFFFF).withOpacity(0.25),
+                                    Color(0xffFFFFFF),
+                                  ],
+                                  begin: Alignment.topRight,
+                                  end: Alignment.center,
+                                ).createShader(bounds);
+                              },
+                              blendMode: BlendMode.srcIn,
+                              child: CustomSvgPicture(
+                                image: "assets/icons/info.svg",
+                                height: 18,
+                                width: 18,
                                 fit: BoxFit.cover,
-                                color: const Color(0xFF5b6368),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
+                            horizontalSpace(Dimensions.space15),
+                            ShaderMask(
+                              shaderCallback: (Rect bounds) {
+                                return LinearGradient(
+                                  colors: [
+                                    Color(0xffFFFFFF).withOpacity(0.25),
+                                    Color(0xffFFFFFF),
+                                  ],
+                                  begin: Alignment.topRight,
+                                  end: Alignment.center,
+                                ).createShader(bounds);
+                              },
+                              blendMode: BlendMode.srcIn,
+                              child: CustomSvgPicture(
+                                image: "assets/icons/share.svg",
+                                height: 18,
+                                width: 18,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            horizontalSpace(Dimensions.space15),
+                            ShaderMask(
+                              shaderCallback: (Rect bounds) {
+                                return LinearGradient(
+                                  colors: [
+                                    Color(0xffFFFFFF).withOpacity(0.25),
+                                    Color(0xffFFFFFF),
+                                  ],
+                                  begin: Alignment.topRight,
+                                  end: Alignment.center,
+                                ).createShader(bounds);
+                              },
+                              blendMode: BlendMode.srcIn,
+                              child: CustomSvgPicture(
+                                image: "assets/images/interface/note.svg",
+                                height: 18,
+                                width: 18,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -193,7 +257,8 @@ class _ProjectListPageState extends State<ProjectListPage>
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
@@ -295,14 +360,14 @@ class _ProjectListPageState extends State<ProjectListPage>
                                   Column(
                                     children: [
                                       Transform.rotate(
-                                        angle:-45,
+                                        angle: -45,
                                         child: CustomSvgPicture(
                                           image:
                                               "assets/images/interface/guide.svg",
                                           height: 22,
-                                          width:22,
+                                          width: 22,
                                           fit: BoxFit.cover,
-                                          color:MyColor. getCardBgColor(),
+                                          color: MyColor.getCardBgColor(),
                                         ),
                                       ),
                                       verticalSpace(Dimensions.space2),
@@ -310,11 +375,9 @@ class _ProjectListPageState extends State<ProjectListPage>
                                         TextSpan(
                                           children: [
                                             TextSpan(
-                                              text:
-                                                  "Guide",
+                                              text: "Guide",
                                               style: regularSmall.copyWith(
-                                                color:
-                                                    MyColor.getCardBgColor(),
+                                                color: MyColor.getCardBgColor(),
                                               ),
                                             ),
                                           ],
@@ -338,92 +401,4 @@ class _ProjectListPageState extends State<ProjectListPage>
       ),
     );
   }
-}
-
-class WaveClipper extends CustomClipper<Path> {
-  List<List<Offset>> points;
-
-  WaveClipper({required this.points});
-
-  @override
-  Path getClip(Size size) {
-    var path = Path();
-
-    path.moveTo(0, size.height);
-    path.lineTo(0, 0);
-
-    for (var pair in points) {
-      for (int i = 0; i < pair.length - 1; i += 2) {
-        var control = pair[i];
-        var end = pair[i + 1];
-
-        path.quadraticBezierTo(control.dx, control.dy, end.dx, end.dy);
-      }
-    }
-
-    path.lineTo(size.width, size.height);
-
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
-    return true;
-  }
-}
-
-class WaveBorderPainter extends CustomPainter {
-  final List<List<Offset>> points;
-  final Color borderColor;
-
-  WaveBorderPainter({required this.points, this.borderColor = Colors.black});
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint =
-        Paint()
-          ..color = borderColor
-          ..style = PaintingStyle.stroke;
-
-    Offset currentStart = const Offset(0, 0);
-
-    for (var pair in points) {
-      for (int i = 0; i < pair.length - 1; i += 2) {
-        final control = pair[i];
-        final end = pair[i + 1];
-
-        const int segments = 40;
-        Offset prevPoint = currentStart;
-
-        for (int j = 1; j <= segments; j++) {
-          final t = j / segments;
-
-          final x =
-              (1 - t) * (1 - t) * currentStart.dx +
-              2 * (1 - t) * t * control.dx +
-              t * t * end.dx;
-          final y =
-              (1 - t) * (1 - t) * currentStart.dy +
-              2 * (1 - t) * t * control.dy +
-              t * t * end.dy;
-
-          final point = Offset(x, y);
-
-          double relativeT = (t - 0.5).abs() * 2;
-          double strokeWidth = lerpDouble(7.0, 1.0, relativeT)!;
-
-          paint.strokeWidth = strokeWidth;
-          canvas.drawLine(prevPoint, point, paint);
-
-          prevPoint = point;
-        }
-
-        currentStart = end;
-      }
-    }
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => true;
 }
