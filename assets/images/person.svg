@@ -1,0 +1,14 @@
+<svg width="800" height="800" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#318BDF"/>
+      <stop offset="100%" stop-color="#6DD5FA"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Head -->
+  <path fill="url(#grad1)" fill-rule="evenodd" clip-rule="evenodd" d="M12 12C14.76 12 17 9.76 17 7C17 4.24 14.76 2 12 2C9.24 2 7 4.24 7 7C7 9.76 9.24 12 12 12Z"/>
+
+  <!-- Curved body -->
+  <path fill="url(#grad1)" d="M4 20Q12 24 20 20C20 15.58 16 14 12 14C8 14 4 15.58 4 20Z"/>
+</svg>

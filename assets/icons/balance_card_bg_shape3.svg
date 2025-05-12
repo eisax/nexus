@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="110" height="12" viewBox="0 0 110 12" fill="none">
+  <g style="mix-blend-mode:overlay" opacity="0.5" clip-path="url(#clip0_280_330)">
+    <path d="M1.89 9.89L0 9.86L13.88 -11L15.77 -10.97L1.89 9.89Z" fill="#0D6EFD"/>
+    <path d="M12.29 10.05L10.4 10.02L24.27 -10.84L26.16 -10.81L12.29 10.05Z" fill="#0D6EFD"/>
+    <path d="M22.68 10.21L20.79 10.18L34.67 -10.68L36.56 -10.65L22.68 10.21Z" fill="#0D6EFD"/>
+    <path d="M33.08 10.37L31.19 10.34L45.06 -10.52L46.95 -10.49L33.08 10.37Z" fill="#0D6EFD"/>
+    <path d="M43.47 10.53L41.58 10.5L55.46 -10.36L57.35 -10.33L43.47 10.53Z" fill="#0D6EFD"/>
+    <path d="M53.87 10.68L51.98 10.66L65.86 -10.2L67.75 -10.18L53.87 10.68Z" fill="#0D6EFD"/>
+    <path d="M64.27 10.84L62.38 10.82L76.25 -10.05L78.14 -10.02L64.27 10.84Z" fill="#0D6EFD"/>
+    <path d="M74.66 11L72.77 10.98L86.65 -9.89L88.54 -9.86L74.66 11Z" fill="#0D6EFD"/>
+    <path d="M85.06 11.16L83.17 11.13L97.04 -9.73L98.93 -9.7L85.06 11.16Z" fill="#0D6EFD"/>
+    <path d="M95.45 11.32L93.56 11.29L107.44 -9.57001L109.33 -9.54001L95.45 11.32Z" fill="#0D6EFD"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_280_330">
+      <rect width="109.33" height="22.32" fill="white" transform="translate(0 -11)"/>
+    </clipPath>
+  </defs>
+</svg>
