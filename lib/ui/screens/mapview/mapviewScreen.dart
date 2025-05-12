@@ -26,7 +26,8 @@ class CustomButton extends StatelessWidget {
     required this.icon,
     required this.color,
     required this.textColor,
-    required this.onPressed,  this.size=24,
+    required this.onPressed,
+    this.size = 24,
   }) : super(key: key);
 
   @override
@@ -329,7 +330,8 @@ class _ProjectListPageState extends State<ProjectListPage>
                                   size: 12,
                                   color: MyColor.assetColorGray2,
                                   textColor: MyColor.getContentTextColor(),
-                                  onPressed: () {},
+                                  onPressed:
+                                      () => Get.offNamed(RouteHelper.fullview),
                                 ),
                                 horizontalSpace(Dimensions.space15),
                                 CustomButton(
@@ -360,9 +362,7 @@ class _ProjectListPageState extends State<ProjectListPage>
                 ),
                 // Upper Selection bar
                 Container(
-                  decoration: BoxDecoration(
-                    color: MyColor.getCardBgColor(),
-                  ),
+                  decoration: BoxDecoration(color: MyColor.getCardBgColor()),
                   padding: EdgeInsets.symmetric(
                     horizontal: Dimensions.space15,
                     vertical: Dimensions.space20,
@@ -408,8 +408,7 @@ class _ProjectListPageState extends State<ProjectListPage>
                       // Skin
                       if (selectedWithdrawMethod == "Skin") ...[
                         IconButtonWidget(
-                          iconPath:
-                              "assets/images/interface/initial-view.svg",
+                          iconPath: "assets/images/interface/initial-view.svg",
                           text: "Initial View",
                           color: MyColor.getPrimaryColor(),
                           onTap: () {},
@@ -513,4 +512,3 @@ class _ProjectListPageState extends State<ProjectListPage>
     );
   }
 }
-
