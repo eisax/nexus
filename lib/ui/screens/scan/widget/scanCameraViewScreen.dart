@@ -21,6 +21,7 @@ class _ScanCameraViewState extends State<ScanCameraView>
   double _maxAvailableExposureOffset = 0.0;
   double _minAvailableZoom = 1.0;
   double _maxAvailableZoom = 1.0;
+  bool _isCameraInitializing = false;
 
   @override
   void initState() {
@@ -31,29 +32,42 @@ class _ScanCameraViewState extends State<ScanCameraView>
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    final CameraController? cameraController = controller;
-
-    if (cameraController == null || !cameraController.value.isInitialized) {
+    if (controller == null || !controller!.value.isInitialized) {
       return;
     }
 
     if (state == AppLifecycleState.inactive) {
-      cameraController.dispose();
+      controller?.dispose();
+      controller = null;
     } else if (state == AppLifecycleState.resumed) {
       _initializeCamera();
     }
   }
 
   Future<void> _initializeCamera() async {
-    final cameras = await availableCameras();
-    final firstCamera = cameras.first;
-    await _initializeCameraController(firstCamera);
+    if (_isCameraInitializing) return;
+    _isCameraInitializing = true;
+
+    try {
+      final cameras = await availableCameras();
+      final firstCamera = cameras.first;
+
+      await _initializeCameraController(firstCamera);
+    } catch (e) {
+      print("Failed to initialize camera: $e");
+    } finally {
+      _isCameraInitializing = false;
+    }
   }
 
   Future<void> _initializeCameraController(
     CameraDescription cameraDescription,
   ) async {
-    final CameraController cameraController = CameraController(
+    if (controller != null) {
+      await controller!.dispose();
+    }
+
+    final cameraController = CameraController(
       cameraDescription,
       kIsWeb ? ResolutionPreset.max : ResolutionPreset.medium,
       enableAudio: enableAudio,
@@ -63,9 +77,7 @@ class _ScanCameraViewState extends State<ScanCameraView>
     controller = cameraController;
 
     cameraController.addListener(() {
-      if (mounted) {
-        setState(() {});
-      }
+      if (mounted) setState(() {});
       if (cameraController.value.hasError) {
         print('Camera error ${cameraController.value.errorDescription}');
       }
@@ -73,45 +85,20 @@ class _ScanCameraViewState extends State<ScanCameraView>
 
     try {
       await cameraController.initialize();
-      await Future.wait(<Future<Object?>>[
-        ...!kIsWeb
-            ? <Future<Object?>>[
-              cameraController.getMinExposureOffset().then(
-                (double value) => _minAvailableExposureOffset = value,
-              ),
-              cameraController.getMaxExposureOffset().then(
-                (double value) => _maxAvailableExposureOffset = value,
-              ),
-            ]
-            : <Future<Object?>>[],
-        cameraController.getMaxZoomLevel().then(
-          (double value) => _maxAvailableZoom = value,
-        ),
-        cameraController.getMinZoomLevel().then(
-          (double value) => _minAvailableZoom = value,
-        ),
-      ]);
-    } on CameraException catch (e) {
-      switch (e.code) {
-        case 'CameraAccessDenied':
-          print('You have denied camera access.');
-        case 'CameraAccessDeniedWithoutPrompt':
-          print('Please go to Settings app to enable camera access.');
-        case 'CameraAccessRestricted':
-          print('Camera access is restricted.');
-        case 'AudioAccessDenied':
-          print('You have denied audio access.');
-        case 'AudioAccessDeniedWithoutPrompt':
-          print('Please go to Settings app to enable audio access.');
-        case 'AudioAccessRestricted':
-          print('Audio access is restricted.');
-        default:
-          _showCameraException(e);
-      }
-    }
 
-    if (mounted) {
-      setState(() {});
+      if (!kIsWeb) {
+        _minAvailableExposureOffset =
+            await cameraController.getMinExposureOffset();
+        _maxAvailableExposureOffset =
+            await cameraController.getMaxExposureOffset();
+      }
+
+      _maxAvailableZoom = await cameraController.getMaxZoomLevel();
+      _minAvailableZoom = await cameraController.getMinZoomLevel();
+
+      if (mounted) setState(() {});
+    } on CameraException catch (e) {
+      _showCameraException(e);
     }
   }
 

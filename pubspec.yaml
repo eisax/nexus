@@ -25,6 +25,7 @@ dependencies:
     git:
       url: https://github.com/odd-io/panorama_image.git
       ref: main 
+  sensors_plus: ^6.1.1
 
 dev_dependencies:
   flutter_test:
@@ -42,3 +43,4 @@ flutter:
     - assets/images/phone_shoot_long_after/
     - assets/images/interface/
     - assets/images/panorama/
+    - assets/images/proximity/

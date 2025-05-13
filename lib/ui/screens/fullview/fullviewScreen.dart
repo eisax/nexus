@@ -1,5 +1,6 @@
+import 'dart:async';
 import 'dart:ui';
-
+import 'package:sensors_plus/sensors_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -52,6 +53,31 @@ class FullControlsView extends StatefulWidget {
 
 class _FullControlsViewState extends State<FullControlsView>
     with WidgetsBindingObserver {
+
+ double _horizontalOffset = 0.0;
+  StreamSubscription<GyroscopeEvent>? _gyroscopeSubscription;
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Gyroscope sensor control
+    _gyroscopeSubscription = gyroscopeEvents.listen((GyroscopeEvent event) {
+      setState(() {
+        // Update the horizontal offset based on gyroscope y-axis events
+        // You might need to adjust the multiplier to get the desired sensitivity
+        _horizontalOffset += event.y * 5;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _gyroscopeSubscription?.cancel();
+    super.dispose();
+  }
+
+
   double height = 130;
 
   List<Offset> originalPoints = [
@@ -127,6 +153,7 @@ class _FullControlsViewState extends State<FullControlsView>
       body: Stack(
         children: [
           Positioned.fill(
+           left: _horizontalOffset,
             child: PanoramaViewer(
               image: AssetImage('assets/images/panorama/pano-1.jpg'),
               initialFOV: 45.0,
@@ -177,7 +204,7 @@ class _FullControlsViewState extends State<FullControlsView>
                             ),
                           ],
                         ),
-
+      
                         //3 end icons
                         Row(
                           children: [
@@ -336,7 +363,7 @@ class _FullControlsViewState extends State<FullControlsView>
                                         ),
                                       ],
                                     ),
-
+      
                                     horizontalSpace(Dimensions.space10),
                                     Column(
                                       crossAxisAlignment:
@@ -362,9 +389,9 @@ class _FullControlsViewState extends State<FullControlsView>
                                               TextSpan(
                                                 text:
                                                     "All in one XR navigation platform",
-                                                style: regularSmall.copyWith(
+                                                style: semiBoldSmall.copyWith(
                                                   color:
-                                                      MyColor.getContentTextColor(),
+                                                      MyColor.getPrimaryTextHintColor(),
                                                 ),
                                               ),
                                             ],
@@ -374,7 +401,7 @@ class _FullControlsViewState extends State<FullControlsView>
                                     ),
                                   ],
                                 ),
-
+      
                                 Column(
                                   children: [
                                     Transform.rotate(
