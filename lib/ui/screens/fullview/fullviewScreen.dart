@@ -9,7 +9,7 @@ import 'package:nexus/ui/screens/fullview/widgets/curve.dart';
 import 'package:nexus/ui/styles/style.dart';
 import 'package:nexus/utils/dimensions.dart';
 import 'package:nexus/utils/my_color.dart';
-import 'package:panorama_viewer_plus/panorama_viewer_plus.dart';
+import 'package:panorama_image/panorama_image.dart';
 
 class FullViewScreen extends StatefulWidget {
   const FullViewScreen({super.key});
@@ -52,7 +52,7 @@ class FullControlsView extends StatefulWidget {
 
 class _FullControlsViewState extends State<FullControlsView>
     with WidgetsBindingObserver {
-  double height = 100;
+  double height = 130;
 
   List<Offset> originalPoints = [
     Offset(Get.width / 5, 0),
@@ -92,7 +92,7 @@ class _FullControlsViewState extends State<FullControlsView>
           totalProgress += progress.isNaN ? 1 : progress;
         }
         double averageProgress = totalProgress / points[0].length;
-        height = 100 + (100 * averageProgress);
+        height = 130 + (130 * averageProgress);
       } else if (details.delta.dy > 0) {
         points = [
           List.generate(points[0].length, (i) {
@@ -112,8 +112,8 @@ class _FullControlsViewState extends State<FullControlsView>
         }
         double averageProgress = totalProgress / points[0].length;
 
-        if (height > 100) {
-          height = 100 - (100 * averageProgress);
+        if (height - (130 * averageProgress) > 100) {
+          height = 130 - (130 * averageProgress);
         } else {
           height = 100;
         }
@@ -127,9 +127,9 @@ class _FullControlsViewState extends State<FullControlsView>
       body: Stack(
         children: [
           Positioned.fill(
-            child: CustomPanoramaViewer(
-              imagePath: 'assets/images/panorama/pano-1.jpg',
-              isAssetImage: true,
+            child: PanoramaViewer(
+              image: AssetImage('assets/images/panorama/pano-1.jpg'),
+              initialFOV: 45.0,
             ),
           ),
           // Top back button
@@ -137,7 +137,7 @@ class _FullControlsViewState extends State<FullControlsView>
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SafeArea(
-                child: Container(
+                child: SizedBox(
                   width: Get.width,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
@@ -247,125 +247,288 @@ class _FullControlsViewState extends State<FullControlsView>
                   ),
                 ),
               ),
-              Container(
-                child: Stack(
-                  alignment: Alignment.bottomLeft,
-                  children: [
-                    SizedBox(
-                      height: height,
-                      child: CustomPaint(
-                        painter: WaveBorderPainter(
-                          points: points,
-                          borderColor: MyColor.getPrimaryColor().withOpacity(
-                            0.4,
-                          ),
-                        ),
-                        size: Size.infinite,
+              Stack(
+                alignment: Alignment.bottomLeft,
+                children: [
+                  SizedBox(
+                    height: height,
+                    child: CustomPaint(
+                      painter: WaveBorderPainter(
+                        points: points,
+                        borderColor: MyColor.getPrimaryColor().withOpacity(0.4),
                       ),
+                      size: Size.infinite,
                     ),
-                    GestureDetector(
-                      onVerticalDragUpdate: _onVerticalDragUpdate,
-                      child: ClipPath(
-                        clipper: WaveClipper(points: points),
-                        child: Container(
-                          padding: EdgeInsets.all(Dimensions.space15),
-                          height: height,
-                          color: Colors.black.withOpacity(0.5),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Stack(
-                                        alignment: Alignment.bottomCenter,
-                                        children: [
-                                          GestureDetector(
-                                            //  onTap:
-                                            //   () => Get.toNamed(RouteHelper.profileandsettings),
-                                            child: Container(
-                                              padding: EdgeInsets.all(5),
-                                              width: 40,
-                                              height: 40,
-                                              decoration: BoxDecoration(
-                                                color: Color(0xffedf3fc),
-                                                border: Border.all(
-                                                  color: Colors.white,
-                                                  width: 1,
-                                                ),
-                                                shape: BoxShape.circle,
+                  ),
+                  GestureDetector(
+                    onVerticalDragUpdate: _onVerticalDragUpdate,
+                    child: ClipPath(
+                      clipper: WaveClipper(points: points),
+                      child: Container(
+                        padding: EdgeInsets.all(Dimensions.space15),
+                        height: height,
+                        color: Colors.black.withOpacity(0.5),
+                        child: Column(
+                          mainAxisAlignment:
+                              height < 150
+                                  ? MainAxisAlignment.center
+                                  : MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Stack(
+                                      alignment: Alignment.bottomCenter,
+                                      children: [
+                                        GestureDetector(
+                                          //  onTap:
+                                          //   () => Get.toNamed(RouteHelper.profileandsettings),
+                                          child: Container(
+                                            padding: EdgeInsets.all(5),
+                                            width: 40,
+                                            height: 40,
+                                            decoration: BoxDecoration(
+                                              color: Color(0xffedf3fc),
+                                              border: Border.all(
+                                                color: Colors.white,
+                                                width: 1,
                                               ),
-                                              child: SvgPicture.asset(
-                                                'assets/images/person.svg',
-                                                width: 15,
-                                                height: 15,
-                                                fit: BoxFit.fitHeight,
-                                                color: Color(0xFF318BDF),
-                                              ),
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: SvgPicture.asset(
+                                              'assets/images/person.svg',
+                                              width: 15,
+                                              height: 15,
+                                              fit: BoxFit.fitHeight,
+                                              color: Color(0xFF318BDF),
                                             ),
                                           ),
-                                          Positioned(
-                                            bottom: 0,
-                                            left: 0,
-                                            child: ShaderMask(
-                                              shaderCallback: (Rect bounds) {
-                                                return LinearGradient(
-                                                  colors: [
-                                                    Color(0xff5f67fc),
-                                                    Color(
-                                                      0xff5f67fc,
-                                                    ).withOpacity(0.75),
-                                                  ],
-                                                  begin: Alignment.center,
-                                                  end: Alignment.bottomCenter,
-                                                ).createShader(bounds);
-                                              },
-                                              blendMode: BlendMode.srcIn,
-                                              child: CustomSvgPicture(
-                                                image:
-                                                    "assets/images/interface/list.svg",
-                                                height: 18,
-                                                width: 18,
-                                                fit: BoxFit.cover,
+                                        ),
+                                        Positioned(
+                                          bottom: 0,
+                                          left: 0,
+                                          child: ShaderMask(
+                                            shaderCallback: (Rect bounds) {
+                                              return LinearGradient(
+                                                colors: [
+                                                  Color(0xff5f67fc),
+                                                  Color(
+                                                    0xff5f67fc,
+                                                  ).withOpacity(0.75),
+                                                ],
+                                                begin: Alignment.center,
+                                                end: Alignment.bottomCenter,
+                                              ).createShader(bounds);
+                                            },
+                                            blendMode: BlendMode.srcIn,
+                                            child: CustomSvgPicture(
+                                              image:
+                                                  "assets/images/interface/list.svg",
+                                              height: 18,
+                                              width: 18,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+
+                                    horizontalSpace(Dimensions.space10),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text.rich(
+                                          TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text: "eisax",
+                                                style: semiBoldLarge.copyWith(
+                                                  color:
+                                                      MyColor.getCardBgColor(),
+                                                ),
                                               ),
+                                            ],
+                                          ),
+                                        ),
+                                        verticalSpace(Dimensions.space3),
+                                        Text.rich(
+                                          TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text:
+                                                    "All in one XR navigation platform",
+                                                style: regularSmall.copyWith(
+                                                  color:
+                                                      MyColor.getContentTextColor(),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+
+                                Column(
+                                  children: [
+                                    Transform.rotate(
+                                      angle: -45,
+                                      child: CustomSvgPicture(
+                                        image:
+                                            "assets/images/interface/guide.svg",
+                                        height: 22,
+                                        width: 22,
+                                        fit: BoxFit.cover,
+                                        color: MyColor.getCardBgColor(),
+                                      ),
+                                    ),
+                                    verticalSpace(Dimensions.space2),
+                                    Text.rich(
+                                      TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: "Guide",
+                                            style: regularSmall.copyWith(
+                                              color: MyColor.getCardBgColor(),
                                             ),
                                           ),
                                         ],
                                       ),
-
-                                      horizontalSpace(Dimensions.space10),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text.rich(
-                                            TextSpan(
-                                              children: [
-                                                TextSpan(
-                                                  text: "eisax",
-                                                  style: semiBoldLarge.copyWith(
-                                                    color:
-                                                        MyColor.getCardBgColor(),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            if (height > 150) ...[
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  verticalSpace(Dimensions.space17),
+                                  Text.rich(
+                                    TextSpan(
+                                      children: [
+                                        TextSpan(
+                                          text: "Tools",
+                                          style: semiBoldDefault.copyWith(
+                                            color:
+                                                MyColor.getPrimaryTextHintColor(),
                                           ),
-                                          verticalSpace(Dimensions.space3),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  verticalSpace(Dimensions.space5),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Column(
+                                        children: [
+                                          CustomSvgPicture(
+                                            image:
+                                                "assets/images/interface/measure.svg",
+                                            height: 22,
+                                            width: 22,
+                                            fit: BoxFit.cover,
+                                            color:
+                                                MyColor.getPrimaryTextHintColor(),
+                                          ),
+                                          verticalSpace(Dimensions.space5),
                                           Text.rich(
                                             TextSpan(
                                               children: [
                                                 TextSpan(
-                                                  text:
-                                                      "All in one XR navigation platform",
+                                                  text: "Ruler On",
                                                   style: regularSmall.copyWith(
                                                     color:
-                                                        MyColor.getContentTextColor(),
+                                                        MyColor.getPrimaryTextHintColor(),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Column(
+                                        children: [
+                                          CustomSvgPicture(
+                                            image:
+                                                "assets/images/interface/scale.svg",
+                                            height: 22,
+                                            width: 22,
+                                            fit: BoxFit.cover,
+                                            color:
+                                                MyColor.getPrimaryTextHintColor(),
+                                          ),
+                                          verticalSpace(Dimensions.space5),
+                                          Text.rich(
+                                            TextSpan(
+                                              children: [
+                                                TextSpan(
+                                                  text: "Unit",
+                                                  style: regularSmall.copyWith(
+                                                    color:
+                                                        MyColor.getPrimaryTextHintColor(),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Column(
+                                        children: [
+                                          CustomSvgPicture(
+                                            image:
+                                                "assets/images/interface/ruler.svg",
+                                            height: 22,
+                                            width: 22,
+                                            fit: BoxFit.cover,
+                                            color:
+                                                MyColor.getPrimaryTextHintColor(),
+                                          ),
+                                          verticalSpace(Dimensions.space5),
+                                          Text.rich(
+                                            TextSpan(
+                                              children: [
+                                                TextSpan(
+                                                  text: "Measure",
+                                                  style: regularSmall.copyWith(
+                                                    color:
+                                                        MyColor.getPrimaryTextHintColor(),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Column(
+                                        children: [
+                                          CustomSvgPicture(
+                                            image:
+                                                "assets/images/interface/vr.svg",
+                                            height: 22,
+                                            width: 22,
+                                            fit: BoxFit.cover,
+                                            color:
+                                                MyColor.getPrimaryTextHintColor(),
+                                          ),
+                                          verticalSpace(Dimensions.space5),
+                                          Text.rich(
+                                            TextSpan(
+                                              children: [
+                                                TextSpan(
+                                                  text: "VR Glasses",
+                                                  style: regularSmall.copyWith(
+                                                    color:
+                                                        MyColor.getPrimaryTextHintColor(),
                                                   ),
                                                 ),
                                               ],
@@ -375,44 +538,51 @@ class _FullControlsViewState extends State<FullControlsView>
                                       ),
                                     ],
                                   ),
-
-                                  Column(
-                                    children: [
-                                      Transform.rotate(
-                                        angle: -45,
-                                        child: CustomSvgPicture(
-                                          image:
-                                              "assets/images/interface/guide.svg",
-                                          height: 22,
-                                          width: 22,
-                                          fit: BoxFit.cover,
-                                          color: MyColor.getCardBgColor(),
-                                        ),
-                                      ),
-                                      verticalSpace(Dimensions.space2),
-                                      Text.rich(
-                                        TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text: "Guide",
-                                              style: regularSmall.copyWith(
-                                                color: MyColor.getCardBgColor(),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                  verticalSpace(Dimensions.space17),
                                 ],
                               ),
+                              if (height > 250) ...[
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text.rich(
+                                      TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: "About Us",
+                                            style: boldDefault.copyWith(
+                                              color:
+                                                  MyColor.getPrimaryTextHintColor(),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    verticalSpace(Dimensions.space5),
+                                    Text.rich(
+                                      TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text:
+                                                "Nexus, world's leading digital space integrated solutions.",
+                                            style: semiBoldDefault.copyWith(
+                                              color:
+                                                  MyColor.getPrimaryTextHintColor(),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ],
-                          ),
+                          ],
                         ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ],
           ),
