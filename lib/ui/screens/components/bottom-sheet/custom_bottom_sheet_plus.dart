@@ -9,6 +9,7 @@ class CustomBottomSheetPlus {
   final Color bgColor;
   final bool enableDrag;
   final bool isScrollControlled;
+  final double borderRadius;
 
   CustomBottomSheetPlus({
     required this.child,
@@ -16,6 +17,7 @@ class CustomBottomSheetPlus {
     this.isScrollControlled = true,
     this.enableDrag = true,
     this.voidCallback,
+    this.borderRadius = 25,
     this.bgColor = MyColor.colorWhite,
   });
 
@@ -28,10 +30,10 @@ class CustomBottomSheetPlus {
       elevation: 0.0,
       enableDrag: true,
       backgroundColor: bgColor,
-      shape: const RoundedRectangleBorder(
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadiusDirectional.only(
-          topEnd: Radius.circular(25),
-          topStart: Radius.circular(25),
+          topEnd: Radius.circular(borderRadius),
+          topStart: Radius.circular(borderRadius),
         ),
       ),
       builder: (context) {

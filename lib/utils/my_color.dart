@@ -9,7 +9,7 @@ class MyColor {
   static const Color primaryColor200 = Color(0xffb9e0ff);
   static const Color primaryColor300 = Color(0xff89cfff);
   static const Color primaryColor400 = Color(0xff52b4ff);
-  static const Color primaryColor500 = Color(0xff2a91ff);
+  static const Color primaryColor500 = Color(0xff5f67fc);
   static const Color primaryColor600 = Color(0xff0d6efd);
   static const Color primaryColor700 = Color(0xff0c5ae9);
   static const Color primaryColor800 = Color(0xff144194);
@@ -125,7 +125,7 @@ class MyColor {
   }
 
   static Color getTextFieldHintColor() {
-    return secondaryColor600;
+    return secondaryColor300;
   }
 
   static Color getTextFieldDisableBorder() {

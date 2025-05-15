@@ -7,7 +7,7 @@ import 'package:nexus/utils/dimensions.dart';
 import 'package:nexus/utils/my_color.dart';
 
 class MenuRowWidget extends StatelessWidget {
-  final String image;
+  final String? image;
   final double? imageSize;
   final String label;
   final String? subLabel;
@@ -19,7 +19,7 @@ class MenuRowWidget extends StatelessWidget {
 
   const MenuRowWidget({
     super.key,
-    required this.image,
+    this.image,
     required this.label,
     required this.onPressed,
     this.counter,
@@ -48,42 +48,47 @@ class MenuRowWidget extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                image.contains('svg')
-                    ? SvgPicture.asset(
-                      image,
-                      colorFilter: ColorFilter.mode(
-                        iconColor ?? MyColor.getPrimaryTextColor(),
-                        BlendMode.srcIn,
-                      ),
-                      height: imageSize,
-                      width: imageSize,
-                      fit: BoxFit.contain,
-                    )
-                    : Image.asset(
-                      image,
-                      color: MyColor.getPrimaryTextColor(),
-                      height: imageSize,
-                      width: imageSize,
-                      fit: BoxFit.contain,
-                    ),
-                const SizedBox(width: Dimensions.space10),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    DefaultText(
-                      text: label.tr,
-                      textStyle: boldLarge.copyWith(
+                if (image != null) ...[
+                  image!.contains('svg')
+                      ? SvgPicture.asset(
+                        image!,
+                        colorFilter: ColorFilter.mode(
+                          iconColor ?? MyColor.getPrimaryTextColor(),
+                          BlendMode.srcIn,
+                        ),
+                        height: imageSize,
+                        width: imageSize,
+                        fit: BoxFit.contain,
+                      )
+                      : Image.asset(
+                        image!,
                         color: MyColor.getPrimaryTextColor(),
+                        height: imageSize,
+                        width: imageSize,
+                        fit: BoxFit.contain,
                       ),
-                    ),
-                    if (subLabel != null)
+                  const SizedBox(width: Dimensions.space10),
+                ],
+                SizedBox(
+                  width: Get.width*0.6,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
                       DefaultText(
-                        text: subLabel!.tr,
-                        textStyle: regularSmall.copyWith(
-                          color: MyColor.getGreyText(),
+                        text: label.tr,
+                        textStyle: boldLarge.copyWith(
+                          color: MyColor.getPrimaryTextColor(),
                         ),
                       ),
-                  ],
+                      if (subLabel != null)
+                        DefaultText(
+                          text: subLabel!.tr,
+                          textStyle: regularExtraSmall.copyWith(
+                            color: MyColor.getGreyText(),
+                          ),
+                        ),
+                    ],
+                  ),
                 ),
               ],
             ),

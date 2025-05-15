@@ -16,7 +16,7 @@ class Dimensions {
   static const double cardMargin = 12;
   static const double buttonRadius = 4;
   static const double buttonRadius2 = 4;
-  static const double cardRadius1 = 8;
+  static const double cardRadius1 = 5;
   static const double cardRadius2 = 8;
   static const double bottomSheetRadius = 15;
   static const double textToTextSpace = 8;

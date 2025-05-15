@@ -66,12 +66,17 @@ class _ProjectListPageState extends State<ProjectListPage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              SizedBox(
-                width: 80,
-                height: 75,
-                child: Image(
-                  image: AssetImage("assets/images/bg_poincare_connected.png"),
-                  fit: BoxFit.contain,
+              GestureDetector(
+                onTap: () => Get.toNamed(RouteHelper.selectdevice),
+                child: SizedBox(
+                  width: 80,
+                  height: 75,
+                  child: Image(
+                    image: AssetImage(
+                      "assets/images/bg_poincare_connected.png",
+                    ),
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
               SizedBox(width: 8),
@@ -147,8 +152,7 @@ class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
                 Stack(
                   children: [
                     GestureDetector(
-                      onTap:
-                          () => Get.toNamed(RouteHelper.profileandsettings),
+                      onTap: () => Get.toNamed(RouteHelper.profileandsettings),
                       child: Container(
                         padding: EdgeInsets.all(5),
                         width: 30,
@@ -215,16 +219,19 @@ class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
             ),
             Stack(
               children: [
-                Container(
-                  padding: EdgeInsets.all(5),
-                  width: 30,
-                  height: 30,
+                GestureDetector(
+                  onTap: () => Get.toNamed(RouteHelper.notification),
+                  child: Container(
+                    padding: EdgeInsets.all(5),
+                    width: 30,
+                    height: 30,
 
-                  child: SvgPicture.asset(
-                    'assets/images/bell_simple.svg',
-                    width: 15,
-                    height: 15,
-                    color: Colors.black,
+                    child: SvgPicture.asset(
+                      'assets/images/bell_simple.svg',
+                      width: 15,
+                      height: 15,
+                      color: Colors.black,
+                    ),
                   ),
                 ),
                 Positioned(
@@ -276,7 +283,8 @@ class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
                         children: [
                           GestureDetector(
                             onTap:
-                                () =>Get.toNamed(RouteHelper.profileandsettings),
+                                () =>
+                                    Get.toNamed(RouteHelper.profileandsettings),
                             child: Container(
                               padding: EdgeInsets.all(5),
                               width: 35,
@@ -445,12 +453,11 @@ class ProjectCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-
-onTap: () => Get.toNamed(RouteHelper.mapview),      child: Card(
-      
+      onTap: () => Get.toNamed(RouteHelper.mapview),
+      child: Card(
         margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         elevation: 2,
-      
+
         child: ClipRRect(
           borderRadius: BorderRadius.circular(12),
           child: Container(
@@ -473,7 +480,10 @@ onTap: () => Get.toNamed(RouteHelper.mapview),      child: Card(
                   child: ListTile(
                     title: Text(
                       name,
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     subtitle: Text(
                       '$date | $location',

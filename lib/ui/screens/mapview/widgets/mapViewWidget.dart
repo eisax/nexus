@@ -4,12 +4,15 @@ import 'package:get/get.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:nexus/app/routes.dart';
+import 'package:nexus/ui/screens/components/bottom-sheet/custom_bottom_sheet_plus.dart';
 import 'package:nexus/ui/screens/components/divider/custom_spacer.dart';
 import 'package:nexus/ui/screens/components/image/custom_svg_picture.dart';
 import 'package:nexus/ui/screens/fullview/fullviewScreen.dart';
 import 'package:nexus/ui/screens/mapview/mapviewScreen.dart';
 import 'package:nexus/ui/screens/mapview/widgets/customButtonWidget.dart';
 import 'package:nexus/ui/screens/mapview/widgets/customIconButton.dart';
+import 'package:nexus/ui/screens/mapview/widgets/dialogwidgets/introductionDialogWidget.dart';
+import 'package:nexus/ui/screens/mapview/widgets/dialogwidgets/nameDialogWidget.dart';
 import 'package:nexus/ui/styles/style.dart';
 import 'package:nexus/utils/dimensions.dart';
 import 'package:nexus/utils/my_color.dart';
@@ -144,7 +147,7 @@ class _MapViewScreenState extends State<MapViewScreen>
                           ),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(
-                              Dimensions.space15+Dimensions.space10,
+                              Dimensions.space15 + Dimensions.space10,
                             ),
                             child: Container(
                               padding: EdgeInsets.all(Dimensions.space10),
@@ -162,9 +165,11 @@ class _MapViewScreenState extends State<MapViewScreen>
                                 ],
                               ),
                               child: ClipRRect(
-                            borderRadius: BorderRadius.circular(
-                              Dimensions.space15,
-                            ),child: FullViewScreen()),
+                                borderRadius: BorderRadius.circular(
+                                  Dimensions.space15,
+                                ),
+                                child: FullViewScreen(),
+                              ),
                             ),
                           ),
                         ),
@@ -189,20 +194,36 @@ class _MapViewScreenState extends State<MapViewScreen>
                           iconPath: "assets/images/interface/text.svg",
                           text: "Name",
                           color: Color(0xff5f67fc),
-                          onTap: () {},
+                          onTap: () {
+                            CustomBottomSheetPlus(
+                              child: UpdateProjectName(),
+                              isNeedPadding: false,
+                              borderRadius: 10,
+                              bgColor: MyColor.transparentColor,
+                            ).show(context);
+                          },
                         ),
                         IconButtonWidget(
                           iconPath: "assets/images/interface/list.svg",
                           text: "Introduction",
                           color: MyColor.getPrimaryColor(),
-                          onTap: () {},
+                          onTap: () {
+                            CustomBottomSheetPlus(
+                              child: UpdateProjectIntroduction(),
+                              isNeedPadding: false,
+                              borderRadius: 10,
+                              bgColor: MyColor.transparentColor,
+                            ).show(context);
+                          },
                         ),
                         IconButtonWidget(
                           iconPath:
                               "assets/images/interface/location-point.svg",
                           text: "Location",
                           color: Color(0xffe87a65),
-                          onTap: () {},
+                          onTap: () {
+                            Get.toNamed(RouteHelper.picklocation);
+                          },
                         ),
                         IconButtonWidget(
                           iconPath: "assets/images/interface/compass.svg",

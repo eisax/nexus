@@ -44,3 +44,5 @@ flutter:
     - assets/images/interface/
     - assets/images/panorama/
     - assets/images/proximity/
+    - assets/images/background/
+    - assets/images/devices/

@@ -45,70 +45,92 @@ class RoundedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget buttonChild = child ??
+    Widget buttonChild =
+        child ??
         Text(
           text.tr,
-          style: textStyle ??
+          style:
+              textStyle ??
               regularLarge.copyWith(
-                color: isColorChange ? textColor : MyColor.getPrimaryButtonTextColor(),
+                color:
+                    isColorChange
+                        ? textColor
+                        : MyColor.getPrimaryButtonTextColor(),
                 fontSize: 14,
               ),
         );
 
     return SizedBox(
       width: double.infinity,
-      child: isOutlined
-          ? OutlinedButton(
-              onPressed: isDisabled
-                  ? null
-                  : isLoading == true
-                      ? null
-                      : press,
-              style: OutlinedButton.styleFrom(
-                elevation: 0,
-                side: BorderSide(color: borderColor), // Border color for outlined button
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(cornerRadius),
+      child:
+          isOutlined
+              ? OutlinedButton(
+                onPressed:
+                    isDisabled
+                        ? null
+                        : isLoading == true
+                        ? null
+                        : press,
+                style: OutlinedButton.styleFrom(
+                  elevation: 0,
+                  side: BorderSide(
+                    color: borderColor,
+                    width: 2,
+                  ), // Border color for outlined button
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(cornerRadius),
+                  ),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: horizontalPadding,
+                    vertical: verticalPadding,
+                  ),
                 ),
-                padding: EdgeInsets.symmetric(horizontal: horizontalPadding, vertical: verticalPadding),
-              ),
-              child: isLoading
-                  ? SizedBox(
-                      width: 20,
-                      height: 20,
-                      child: CircularProgressIndicator(
-                        strokeWidth: 2,
-                        valueColor: AlwaysStoppedAnimation<Color>(color),
-                      ),
-                    )
-                  : buttonChild,
-            )
-          : ElevatedButton(
-              onPressed: isDisabled
-                  ? null
-                  : isLoading == true
-                      ? () {}
-                      : press,
-              style: ElevatedButton.styleFrom(
-                elevation: 0,
-                disabledBackgroundColor: disableColor,
-                backgroundColor: color,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(cornerRadius),
+                child:
+                    isLoading
+                        ? SizedBox(
+                          width: 20,
+                          height: 20,
+                          child: CircularProgressIndicator(
+                            strokeWidth: 2,
+                            valueColor: AlwaysStoppedAnimation<Color>(color),
+                          ),
+                        )
+                        : buttonChild,
+              )
+              : ElevatedButton(
+                onPressed:
+                    isDisabled
+                        ? null
+                        : isLoading == true
+                        ? () {}
+                        : press,
+                style: ElevatedButton.styleFrom(
+                  elevation: 0,
+                  disabledBackgroundColor: disableColor,
+                  backgroundColor: color,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(cornerRadius),
+                  ),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: horizontalPadding,
+                    vertical: verticalPadding,
+                  ),
                 ),
-                padding: EdgeInsets.symmetric(horizontal: horizontalPadding, vertical: verticalPadding),
+                child:
+                    isLoading
+                        ? SizedBox(
+                          width: 20,
+                          height: 20,
+                          child: CircularProgressIndicator(
+                            strokeWidth: 2,
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                              loadingIndicatorColor ??
+                                  MyColor.getPrimaryButtonTextColor(),
+                            ),
+                          ),
+                        )
+                        : buttonChild,
               ),
-              child: isLoading
-                  ? SizedBox(
-                      width: 20,
-                      height: 20,
-                      child: CircularProgressIndicator(
-                        strokeWidth: 2,
-                        valueColor: AlwaysStoppedAnimation<Color>(loadingIndicatorColor ?? MyColor.getPrimaryButtonTextColor()),
-                      ),
-                    )
-                  : buttonChild,
-            ),
     );
   }
 }

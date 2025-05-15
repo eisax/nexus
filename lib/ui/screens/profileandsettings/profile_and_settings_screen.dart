@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:nexus/app/routes.dart';
 import 'package:nexus/data/controller/theme_controller.dart';
 import 'package:nexus/ui/screens/components/buttons/rounded_button.dart';
 import 'package:nexus/ui/screens/components/divider/custom_divider.dart';
@@ -52,7 +53,9 @@ class _ProfileAndSettingsScreenState extends State<ProfileAndSettingsScreen> {
               children: [
                 Positioned.fill(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: Dimensions.space10),
+                    padding: const EdgeInsets.symmetric(
+                      vertical: Dimensions.space10,
+                    ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,11 +63,9 @@ class _ProfileAndSettingsScreenState extends State<ProfileAndSettingsScreen> {
                         GestureDetector(
                           onTap: () => Get.back(),
                           child: Container(
-                            height: 30,
-                            width: 30,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                            ),
+                            height: 24,
+                            width: 24,
+                            decoration: BoxDecoration(shape: BoxShape.circle),
                             child: SvgPicture.asset(
                               "assets/images/close_simple.svg",
                               fit: BoxFit.cover,
@@ -76,7 +77,7 @@ class _ProfileAndSettingsScreenState extends State<ProfileAndSettingsScreen> {
                     ),
                   ),
                 ),
-          
+
                 //header
                 Container(
                   decoration: BoxDecoration(
@@ -94,9 +95,9 @@ class _ProfileAndSettingsScreenState extends State<ProfileAndSettingsScreen> {
                     child: AccountUserCard(
                       isLoading: false,
                       // onTap: () => Get.toNamed(RouteHelper.profileScreen),
-                      fullName: "Kudah Ndhlovu",
-                      username: "eisax",
-                      subtitle: "+263774259097",
+                      fullName: "eisax",
+                      username: "eisaxoffice@gmail.com",
+                      subtitle: "263774259097",
                       rating: 'hide',
                       imgWidget: Container(
                         decoration: BoxDecoration(
@@ -108,15 +109,14 @@ class _ProfileAndSettingsScreenState extends State<ProfileAndSettingsScreen> {
                         ),
                         height: Dimensions.space50 + 35,
                         width: Dimensions.space50 + 35,
-                        // child: ClipOval(
-                        //   child: (true)
-                        //       ? const MyLocalImageWidget(
-                        //           imagePath: MyImages.noProfileImage,
-                        //           boxFit: BoxFit.cover,
-                        //           height: Dimensions.space50 + 60,
-                        //           width: Dimensions.space50 + 60,
-                        //         )
-                        // ),
+                        child: ClipOval(
+                          child: const MyLocalImageWidget(
+                            imagePath: MyImages.noProfileImage,
+                            boxFit: BoxFit.cover,
+                            height: Dimensions.space50 + 60,
+                            width: Dimensions.space50 + 60,
+                          ),
+                        ),
                       ),
                       imgHeight: 40,
                       imgwidth: 40,
@@ -124,13 +124,13 @@ class _ProfileAndSettingsScreenState extends State<ProfileAndSettingsScreen> {
                   ),
                 ),
                 verticalSpace(Dimensions.space20),
-          
+
                 const SizedBox(height: Dimensions.space10),
                 Container(
                   padding: const EdgeInsets.all(Dimensions.space15),
                   decoration: BoxDecoration(
-                    color: MyColor.getScreenBgSecondaryColor(),
-                    borderRadius: BorderRadius.circular(Dimensions.space12),
+                    color: MyColor.getCardBgColor(),
+                    borderRadius: BorderRadius.circular(Dimensions.space5),
                     // boxShadow: MyUtils.getCardShadow(),
                   ),
                   child: Column(
@@ -140,7 +140,7 @@ class _ProfileAndSettingsScreenState extends State<ProfileAndSettingsScreen> {
                       MenuRowWidget(
                         label: "General",
                         onPressed: () {
-                          //  Get.toNamed(RouteHelper.withdrawScreen);
+                          Get.toNamed(RouteHelper.general);
                         },
                       ),
                       CustomDivider(
@@ -150,7 +150,7 @@ class _ProfileAndSettingsScreenState extends State<ProfileAndSettingsScreen> {
                       MenuRowWidget(
                         label: "Device management",
                         onPressed: () {
-                          //  Get.toNamed(RouteHelper.depositScreen);
+                          Get.toNamed(RouteHelper.adddevice);
                         },
                       ),
                       CustomDivider(
@@ -207,14 +207,20 @@ class _ProfileAndSettingsScreenState extends State<ProfileAndSettingsScreen> {
                     ],
                   ),
                 ),
-          
+
                 verticalSpace(Dimensions.space20),
                 if (true) ...[
                   RoundedButton(
                     isLoading: false,
-                    color: MyColor.colorRed,
                     text: "Logout",
                     press: () {},
+                    borderColor: MyColor.getPrimaryColor(),
+                    cornerRadius: Dimensions.space15,
+                    isOutlined: true,
+                    textStyle: boldExtraLarge.copyWith(
+                      color: MyColor.getPrimaryColor(),
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                   verticalSpace(Dimensions.space75),
                 ],
