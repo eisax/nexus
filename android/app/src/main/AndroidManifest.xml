@@ -1,9 +1,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 <uses-permission android:name="android.permission.CAMERA" />
+<uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.INTERNET" />
     <application
         android:label="nexus"
         android:name="${applicationName}"
         android:icon="@mipmap/icon">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyChl4laJOHV3davKdctReIRj5JWDcTClvg"/>
+            <!-- AIzaSyC5NXwgNDsONCL921fGYR2zA7lw4o_cqCA -->
         <activity
             android:name=".MainActivity"
             android:exported="true"

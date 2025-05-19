@@ -59,14 +59,13 @@ class _NotificationScreenState extends State<NotificationScreen> {
         centerTitle: true,
       ),
       body: Padding(
-        padding: EdgeInsets.all(Dimensions.space15),
+        padding: EdgeInsets.symmetric(vertical:Dimensions.space2),
         child: Column(
           children: [
             Container(
               padding: const EdgeInsets.all(Dimensions.space10),
               decoration: BoxDecoration(
                 color: MyColor.getCardBgColor(),
-                borderRadius: BorderRadius.circular(Dimensions.space12),
               ),
               child: Column(
                 children: [
@@ -85,17 +84,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                           ],
                         ),
                       ),
-                      SizedBox(
-                        height: 25,
-                        child: FittedBox(
-                          child: CupertinoSwitch(
-                            value: false,
-                            onChanged: (value) {},
-                            activeColor: MyColor.greenSuccessColor,
-                            trackColor: MyColor.getGreyText(),
-                          ),
-                        ),
-                      ),
+                     
                     ],
                   ),
                   Text.rich(
@@ -111,7 +100,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       ],
                     ),
                   ),
-                  //
+                  
                 ],
               ),
             ),

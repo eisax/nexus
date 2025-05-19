@@ -26,6 +26,12 @@ dependencies:
       url: https://github.com/odd-io/panorama_image.git
       ref: main 
   sensors_plus: ^6.1.1
+  pedometer: ^4.1.1
+  google_maps_flutter: ^2.12.2
+  geolocator: ^14.0.0
+  share_plus: ^11.0.0
+  path_provider: ^2.1.5
+  flutter_compass: ^0.8.1
 
 dev_dependencies:
   flutter_test:

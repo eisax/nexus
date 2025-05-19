@@ -101,16 +101,13 @@ class _UpdateProjectNameState extends State<UpdateProjectName> {
                             child: Column(
                               children: [
                                 CustomTextField(
-                                  instructions: "",
                                   hintText: 'Enter the name(required)',
                                   animatedLabel: false,
                                   needOutlineBorder: true,
                                   labelText: "",
-
                                   textInputType: MyUtils.getInputTextFieldType(
                                     "text",
                                   ),
-
                                   onChanged: (value) {},
                                 ),
                               ],

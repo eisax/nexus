@@ -18,7 +18,8 @@ class UpdateProjectIntroduction extends StatefulWidget {
   const UpdateProjectIntroduction({super.key});
 
   @override
-  State<UpdateProjectIntroduction> createState() => _UpdateProjectIntroductionState();
+  State<UpdateProjectIntroduction> createState() =>
+      _UpdateProjectIntroductionState();
 }
 
 class _UpdateProjectIntroductionState extends State<UpdateProjectIntroduction> {
@@ -101,12 +102,10 @@ class _UpdateProjectIntroductionState extends State<UpdateProjectIntroduction> {
                             child: Column(
                               children: [
                                 CustomTextField(
-                                  instructions: "",
                                   hintText: 'Introduction',
                                   animatedLabel: false,
                                   needOutlineBorder: true,
                                   labelText: "",
-
                                   textInputType: MyUtils.getInputTextFieldType(
                                     "text",
                                   ),
