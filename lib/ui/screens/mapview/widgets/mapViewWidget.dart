@@ -11,8 +11,14 @@ import 'package:nexus/ui/screens/fullview/fullviewScreen.dart';
 import 'package:nexus/ui/screens/mapview/mapviewScreen.dart';
 import 'package:nexus/ui/screens/mapview/widgets/customButtonWidget.dart';
 import 'package:nexus/ui/screens/mapview/widgets/customIconButton.dart';
+import 'package:nexus/ui/screens/mapview/widgets/dialogwidgets/compassDialogWidget.dart';
+import 'package:nexus/ui/screens/mapview/widgets/dialogwidgets/contactDialogWidget.dart';
+import 'package:nexus/ui/screens/mapview/widgets/dialogwidgets/entryDialogWidget.dart';
+import 'package:nexus/ui/screens/mapview/widgets/dialogwidgets/guideDialogWidget.dart';
 import 'package:nexus/ui/screens/mapview/widgets/dialogwidgets/introductionDialogWidget.dart';
+import 'package:nexus/ui/screens/mapview/widgets/dialogwidgets/musicDialogWidget.dart';
 import 'package:nexus/ui/screens/mapview/widgets/dialogwidgets/nameDialogWidget.dart';
+import 'package:nexus/ui/screens/mapview/widgets/dialogwidgets/pointStyleDialogWidget.dart';
 import 'package:nexus/ui/styles/style.dart';
 import 'package:nexus/utils/dimensions.dart';
 import 'package:nexus/utils/my_color.dart';
@@ -143,7 +149,7 @@ class _MapViewScreenState extends State<MapViewScreen>
                         child: Padding(
                           padding: EdgeInsets.symmetric(
                             vertical: Dimensions.space15,
-                            horizontal: Dimensions.space25,
+                            horizontal: Dimensions.space35,
                           ),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(
@@ -229,13 +235,27 @@ class _MapViewScreenState extends State<MapViewScreen>
                           iconPath: "assets/images/interface/compass.svg",
                           text: "Compass",
                           color: Color(0xff63d3c9),
-                          onTap: () {},
+                          onTap: () {
+                            CustomBottomSheetPlus(
+                              child: CompassDialogWidget(),
+                              isNeedPadding: false,
+                              borderRadius: 10,
+                              bgColor: MyColor.transparentColor,
+                            ).show(context);
+                          },
                         ),
                         IconButtonWidget(
                           iconPath: "assets/images/interface/user-id.svg",
                           text: "Contact",
                           color: Color(0xffe8b163),
-                          onTap: () {},
+                          onTap: () {
+                            CustomBottomSheetPlus(
+                              child: ContactDialogWidget(),
+                              isNeedPadding: false,
+                              borderRadius: 10,
+                              bgColor: MyColor.transparentColor,
+                            ).show(context);
+                          },
                         ),
                       ],
                       // Skin
@@ -256,19 +276,40 @@ class _MapViewScreenState extends State<MapViewScreen>
                           iconPath: "assets/images/interface/compass.svg",
                           text: "Point Style",
                           color: Color(0xff5f67fc),
-                          onTap: () {},
+                          onTap: () {
+                            CustomBottomSheetPlus(
+                              child: PointStyleDialogWidget(),
+                              isNeedPadding: false,
+                              borderRadius: 10,
+                              bgColor: MyColor.transparentColor,
+                            ).show(context);
+                          },
                         ),
                         IconButtonWidget(
                           iconPath: "assets/images/interface/entry.svg",
                           text: "Entry",
                           color: Color(0xffe87a65),
-                          onTap: () {},
+                          onTap: () {
+                            CustomBottomSheetPlus(
+                              child: EntryDialogWidget(),
+                              isNeedPadding: false,
+                              borderRadius: 10,
+                              bgColor: MyColor.transparentColor,
+                            ).show(context);
+                          },
                         ),
                         IconButtonWidget(
                           iconPath: "assets/images/interface/music.svg",
                           text: "Music",
                           color: Color(0xff63d3c9),
-                          onTap: () {},
+                          onTap: () {
+                            CustomBottomSheetPlus(
+                              child: MusicDialogWidget(),
+                              isNeedPadding: false,
+                              borderRadius: 10,
+                              bgColor: MyColor.transparentColor,
+                            ).show(context);
+                          },
                         ),
                       ],
                       // Hotspot
@@ -310,7 +351,14 @@ class _MapViewScreenState extends State<MapViewScreen>
                           iconPath: "assets/images/interface/guide.svg",
                           text: "Guide",
                           color: MyColor.getPrimaryColor(),
-                          onTap: () {},
+                          onTap: () {
+                            CustomBottomSheetPlus(
+                              child: GuideDialogWidget(),
+                              isNeedPadding: false,
+                              borderRadius: 10,
+                              bgColor: MyColor.transparentColor,
+                            ).show(context);
+                          },
                         ),
                       ],
                       // Filter

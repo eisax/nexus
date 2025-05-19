@@ -3,6 +3,7 @@ import 'package:nexus/ui/screens/fullview/fullviewScreen.dart';
 import 'package:nexus/ui/screens/home/home_screen.dart';
 import 'package:nexus/ui/screens/mapview/widgets/mapViewWidget.dart';
 import 'package:nexus/ui/screens/mapview/widgets/pickLocationScreen.dart';
+import 'package:nexus/ui/screens/navigation/navigationscreen.dart';
 import 'package:nexus/ui/screens/notifications/notification_screen.dart';
 import 'package:nexus/ui/screens/overview/overview_screen.dart';
 import 'package:nexus/ui/screens/profileandsettings/profile_and_settings_screen.dart';
@@ -25,6 +26,7 @@ class RouteHelper {
   static const String selectdevice = "/selectdevice";
   static const String notification = "/notification";
   static const String picklocation = "/picklocation";
+  static const String navigation = "/navigation";
 
   List<GetPage> routes = [
     GetPage(name: splashScreen, page: () => SplashScreen.routeInstance()),
@@ -42,5 +44,6 @@ class RouteHelper {
     GetPage(name: selectdevice, page: () => SelectDeviceScreen.routeInstance()),
     GetPage(name: notification, page: () => NotificationScreen.routeInstance()),
     GetPage(name: picklocation, page: () => PickLocationScreen.routeInstance()),
+    GetPage(name: navigation, page: () => NavigationScreen.routeInstance()),
   ];
 }

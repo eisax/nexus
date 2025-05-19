@@ -36,4 +36,7 @@ class MyImages {
   static const String withdrawHistory = "assets/images/withdraw_history.png";
   static const String profileImage = "assets/images/avatar.png";
   static const String userdeleteImage = "assets/images/userdeleteImage.png";
+  //
+  //dummies
+  static const String tinder = "assets/images/tinder.jpeg";
 }

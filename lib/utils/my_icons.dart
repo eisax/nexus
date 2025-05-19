@@ -10,6 +10,15 @@ class MyIcons {
 
 
   static const String support = "assets/icons/support.svg";
+  static const String search = "assets/icons/search.svg";
+  static const String mic = "assets/icons/mic.svg";
+  static const String walk = "assets/icons/walk.svg";
+  static const String star = "assets/icons/star.svg";
+  static const String solidTick = "assets/icons/solid-tick.svg";
+  static const String speed_solid = "assets/icons/speed_solid.svg";
+  static const String distance_simple = "assets/icons/distance_simple.svg";
+  static const String helpCircle = "assets/icons/help-circle.svg";
+  static const String callCircle = "assets/icons/call-outline.svg";
   
   static const String bulb = "assets/icons/bulb.svg";
   static const String erase = "assets/icons/erase.svg";

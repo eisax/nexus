@@ -9,6 +9,7 @@ class CustomTextField extends StatefulWidget {
   final String? instructions;
   final String? labelText;
   final String? hintText;
+  final double borderRadius;
   final Function? onChanged;
   final TextEditingController? controller;
   final FocusNode? focusNode;
@@ -61,6 +62,7 @@ class CustomTextField extends StatefulWidget {
     this.isRequired = false,
     this.inputFormatters,
     this.onTap,
+    this.borderRadius = Dimensions.cardRadius1,
   });
 
   @override
@@ -72,18 +74,16 @@ class _CustomTextFieldState extends State<CustomTextField> {
 
   OutlineInputBorder getConstantBorder(Color borderColor) {
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(Dimensions.cardRadius1),
-      borderSide: BorderSide(
-        width: 0.8,
-        color: borderColor,
-      ),
+      borderRadius: BorderRadius.circular(widget.borderRadius),
+      borderSide: BorderSide(width: 0.8, color: borderColor),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    final OutlineInputBorder constantBorder =
-        getConstantBorder(MyColor.getBorderColor());
+    final OutlineInputBorder constantBorder = getConstantBorder(
+      MyColor.getBorderColor(),
+    );
 
     return widget.needOutlineBorder
         ? widget.animatedLabel
@@ -96,9 +96,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return TextFormField(
       maxLines: widget.maxLines,
       readOnly: widget.readOnly,
-      style: regularDefault.copyWith(
-        color: MyColor.getPrimaryTextColor(),
-      ),
+      style: regularDefault.copyWith(color: MyColor.getPrimaryTextColor()),
       cursorColor: MyColor.getPrimaryTextColor(),
       controller: widget.controller,
       autofocus: false,
@@ -120,9 +118,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         errorStyle: regularLarge.copyWith(color: MyColor.colorRed),
         contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
         labelText: widget.labelText ?? '',
-        labelStyle: regularDefault.copyWith(
-          color: MyColor.getLabelTextColor(),
-        ),
+        labelStyle: regularDefault.copyWith(color: MyColor.getLabelTextColor()),
         fillColor: widget.fillColor ?? MyColor.getTextFieldFillColor(),
         filled: true,
         border: constantBorder,
@@ -136,91 +132,91 @@ class _CustomTextFieldState extends State<CustomTextField> {
     );
   }
 
- Widget _buildLabeledField(OutlineInputBorder constantBorder) {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      if (widget.labelText != null) ...[
-        LabelTextInstruction(
-          text: widget.labelText!,
-          isRequired: widget.isRequired,
-          instructions: widget.instructions,
-        ),
-        const SizedBox(height: Dimensions.textToTextSpace),
-      ],
-      Stack(
-        children: [
-          TextFormField(
-            maxLines: widget.maxLines,
-            readOnly: widget.readOnly,
-            style: regularLarge.copyWith(
-              color: MyColor.getPrimaryTextColor(),
-            ),
-            cursorColor: MyColor.getPrimaryTextColor(),
-            controller: widget.controller,
-            autofocus: false,
-            textInputAction: widget.inputAction,
-            enabled: widget.isEnable,
-            focusNode: widget.focusNode,
-            validator: widget.validator,
-            keyboardType: widget.textInputType,
-            obscureText: widget.isPassword ? obscureText : false,
-            inputFormatters: widget.inputFormatters,
-            onFieldSubmitted: (text) {
-              if (widget.nextFocus != null) {
-                FocusScope.of(context).requestFocus(widget.nextFocus);
-              }
-            },
-            onChanged: (text) => setState(() {
-              widget.onChanged!(text);
-            }),
-            onTap: widget.onTap,
-            decoration: InputDecoration(
-              errorStyle: regularLarge.copyWith(color: MyColor.colorRed),
-              contentPadding: EdgeInsets.only(
-                top: widget.maxLines > 1 ? 15 : 5,
-                left: 15,
-                right: 50, // Give space for the icon
-                bottom: 5,
-              ),
-              hintText: widget.hintText ?? '',
-              hintStyle: regularLarge.copyWith(
-                color: MyColor.getTextFieldHintColor(),
-              ),
-              fillColor:
-                  widget.fillColor ?? MyColor.getTextFieldFillColor(),
-              filled: true,
-              border: constantBorder,
-              enabledBorder: constantBorder,
-              focusedBorder: constantBorder,
-              errorBorder: constantBorder,
-              disabledBorder: constantBorder,
-              focusedErrorBorder: constantBorder,
-            ),
+  Widget _buildLabeledField(OutlineInputBorder constantBorder) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (widget.labelText != null) ...[
+          LabelTextInstruction(
+            text: widget.labelText!,
+            isRequired: widget.isRequired,
+            instructions: widget.instructions,
           ),
-          if (widget.controller?.text.isNotEmpty ?? false)
-            Positioned(
-              right: 10,
-              bottom: 8,
-              child: GestureDetector(
-                onTap: () {
-                  setState(() {
-                    widget.controller?.clear();
-                    widget.onChanged?.call('');
-                  });
-                },
-                child: Icon(
-                  Icons.clear,
-                  size: 20,
+          const SizedBox(height: Dimensions.textToTextSpace),
+        ],
+        Stack(
+          children: [
+            TextFormField(
+              maxLines: widget.maxLines,
+              readOnly: widget.readOnly,
+              style: regularLarge.copyWith(
+                color: MyColor.getPrimaryTextColor(),
+              ),
+              cursorColor: MyColor.getPrimaryTextColor(),
+              controller: widget.controller,
+              autofocus: false,
+              textInputAction: widget.inputAction,
+              enabled: widget.isEnable,
+              focusNode: widget.focusNode,
+              validator: widget.validator,
+              keyboardType: widget.textInputType,
+              obscureText: widget.isPassword ? obscureText : false,
+              inputFormatters: widget.inputFormatters,
+              onFieldSubmitted: (text) {
+                if (widget.nextFocus != null) {
+                  FocusScope.of(context).requestFocus(widget.nextFocus);
+                }
+              },
+              onChanged:
+                  (text) => setState(() {
+                    widget.onChanged!(text);
+                  }),
+              onTap: widget.onTap,
+              decoration: InputDecoration(
+                errorStyle: regularLarge.copyWith(color: MyColor.colorRed),
+                contentPadding: EdgeInsets.only(
+                  top: widget.maxLines > 1 ? 15 : 5,
+                  left: 15,
+                  right: 50, // Give space for the icon
+                  bottom: 5,
+                ),
+                hintText: widget.hintText ?? '',
+                hintStyle: regularLarge.copyWith(
                   color: MyColor.getTextFieldHintColor(),
                 ),
+                fillColor: widget.fillColor ?? MyColor.getTextFieldFillColor(),
+                filled: true,
+                border: constantBorder,
+                enabledBorder: constantBorder,
+                focusedBorder: constantBorder,
+                errorBorder: constantBorder,
+                disabledBorder: constantBorder,
+                focusedErrorBorder: constantBorder,
               ),
             ),
-        ],
-      ),
-    ],
-  );
-}
+            if (widget.controller?.text.isNotEmpty ?? false)
+              Positioned(
+                right: 10,
+                bottom: 8,
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      widget.controller?.clear();
+                      widget.onChanged?.call('');
+                    });
+                  },
+                  child: Icon(
+                    Icons.clear,
+                    size: 20,
+                    color: MyColor.getTextFieldHintColor(),
+                  ),
+                ),
+              ),
+          ],
+        ),
+      ],
+    );
+  }
 
   Widget _buildUnderlinedField() {
     return TextFormField(
@@ -245,12 +241,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
       onChanged: (text) => widget.onChanged!(text),
       onTap: widget.onTap,
       decoration: InputDecoration(
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 0, vertical: 5),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 0, vertical: 5),
         labelText: widget.labelText,
-        labelStyle: regularDefault.copyWith(
-          color: MyColor.getLabelTextColor(),
-        ),
+        labelStyle: regularDefault.copyWith(color: MyColor.getLabelTextColor()),
         fillColor: MyColor.transparentColor,
         filled: true,
         border: UnderlineInputBorder(
@@ -299,8 +292,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
           widget.isSearch
               ? Icons.search_outlined
               : widget.isCountryPicker
-                  ? Icons.arrow_drop_down_outlined
-                  : Icons.camera_alt_outlined,
+              ? Icons.arrow_drop_down_outlined
+              : Icons.camera_alt_outlined,
           size: 25,
           color: MyColor.getPrimaryColor(),
         ),

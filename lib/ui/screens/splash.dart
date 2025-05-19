@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void navigateToNextScreen() {
-    Get.offNamed(RouteHelper.home);
+    Get.offNamed(RouteHelper.navigation);
   }
 
   @override
