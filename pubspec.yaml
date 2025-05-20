@@ -32,6 +32,8 @@ dependencies:
   share_plus: ^11.0.0
   path_provider: ^2.1.5
   flutter_compass: ^0.8.1
+  flutter_tts: ^3.8.5
+  audioplayers: ^5.2.1
 
 dev_dependencies:
   flutter_test:
@@ -52,3 +54,4 @@ flutter:
     - assets/images/proximity/
     - assets/images/background/
     - assets/images/devices/
+    - assets/sounds/
