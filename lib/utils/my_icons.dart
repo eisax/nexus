@@ -56,4 +56,5 @@ class MyIcons {
   static const String turnLeft = "assets/icons/turn-left.svg";
   static const String turnRight = "assets/icons/turn-right.svg";
   static const String forward = "assets/icons/arrow-forward.svg";
+  static const String speak = "assets/icons/speak.svg";
 }

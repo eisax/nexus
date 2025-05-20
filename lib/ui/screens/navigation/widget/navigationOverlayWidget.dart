@@ -589,7 +589,7 @@ class _NavigationOverlayWidgetState extends State<NavigationOverlayWidget> {
                       ),
                       const SizedBox(height: 2),
                       Text(
-                        'Turn left',
+                        'After 150m Turn left',
                         style: regularLarge.copyWith(
                           color: MyColor.getCardBgColor().withOpacity(0.5),
                         ),
@@ -616,30 +616,37 @@ class _NavigationOverlayWidgetState extends State<NavigationOverlayWidget> {
                 borderRadius: BorderRadius.circular(32),
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                  child: Container(
-                    height: 40,
-                    width: 40,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: Dimensions.space7,
-                      vertical: Dimensions.space7,
-                    ),
-                    margin: const EdgeInsets.only(bottom: 0),
-                    decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.35),
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black12,
-                          blurRadius: 8,
-                          offset: Offset(0, 2),
-                        ),
-                      ],
-                    ),
-                    child: CustomSvgPicture(
-                      image: MyIcons.search,
-                      color: MyColor.getCardBgColor(),
-                      height: 18,
-                      width: 18,
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        isNavigating = false;
+                      });
+                    },
+                    child: Container(
+                      height: 40,
+                      width: 40,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: Dimensions.space8,
+                        vertical: Dimensions.space8,
+                      ),
+                      margin: const EdgeInsets.only(bottom: 0),
+                      decoration: BoxDecoration(
+                        color: Colors.black.withOpacity(0.35),
+                        shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: 8,
+                            offset: Offset(0, 2),
+                          ),
+                        ],
+                      ),
+                      child: CustomSvgPicture(
+                        image: MyIcons.search,
+                        color: MyColor.getCardBgColor(),
+                        height: 18,
+                        width: 18,
+                      ),
                     ),
                   ),
                 ),
@@ -650,30 +657,33 @@ class _NavigationOverlayWidgetState extends State<NavigationOverlayWidget> {
                 borderRadius: BorderRadius.circular(32),
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                  child: Container(
-                    height: 40,
-                    width: 40,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: Dimensions.space7,
-                      vertical: Dimensions.space7,
-                    ),
-                    margin: const EdgeInsets.only(bottom: 0),
-                    decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.35),
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black12,
-                          blurRadius: 8,
-                          offset: Offset(0, 2),
-                        ),
-                      ],
-                    ),
-                    child: CustomSvgPicture(
-                      image: MyIcons.callCircle,
-                      color: MyColor.getCardBgColor(),
-                      height: 18,
-                      width: 18,
+                  child: GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      height: 40,
+                      width: 40,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: Dimensions.space8,
+                        vertical: Dimensions.space8,
+                      ),
+                      margin: const EdgeInsets.only(bottom: 0),
+                      decoration: BoxDecoration(
+                        color: Colors.black.withOpacity(0.35),
+                        shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: 8,
+                            offset: Offset(0, 2),
+                          ),
+                        ],
+                      ),
+                      child: CustomSvgPicture(
+                        image: MyIcons.speak,
+                        color: MyColor.getCardBgColor(),
+                        height: 18,
+                        width: 18,
+                      ),
                     ),
                   ),
                 ),
@@ -684,30 +694,33 @@ class _NavigationOverlayWidgetState extends State<NavigationOverlayWidget> {
                 borderRadius: BorderRadius.circular(32),
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                  child: Container(
-                    height: 40,
-                    width: 40,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: Dimensions.space7,
-                      vertical: Dimensions.space7,
-                    ),
-                    margin: const EdgeInsets.only(bottom: 0),
-                    decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.35),
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black12,
-                          blurRadius: 8,
-                          offset: Offset(0, 2),
-                        ),
-                      ],
-                    ),
-                    child: CustomSvgPicture(
-                      image: MyIcons.distance_simple,
-                      color: MyColor.getCardBgColor(),
-                      height: 18,
-                      width: 18,
+                  child: GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      height: 40,
+                      width: 40,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: Dimensions.space8,
+                        vertical: Dimensions.space8,
+                      ),
+                      margin: const EdgeInsets.only(bottom: 0),
+                      decoration: BoxDecoration(
+                        color: Colors.black.withOpacity(0.35),
+                        shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: 8,
+                            offset: Offset(0, 2),
+                          ),
+                        ],
+                      ),
+                      child: CustomSvgPicture(
+                        image: MyIcons.distance_simple,
+                        color: MyColor.getCardBgColor(),
+                        height: 18,
+                        width: 18,
+                      ),
                     ),
                   ),
                 ),
@@ -845,8 +858,6 @@ class _NavigationOverlayWidgetState extends State<NavigationOverlayWidget> {
   }
 }
 
-
-
 class _ARPathPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
@@ -861,9 +872,10 @@ class _ARPathPainter extends CustomPainter {
     );
 
     final rect = Rect.fromLTWH(0, 0, size.width, size.height);
-    final paint = Paint()
-      ..shader = gradient.createShader(rect)
-      ..style = PaintingStyle.fill;
+    final paint =
+        Paint()
+          ..shader = gradient.createShader(rect)
+          ..style = PaintingStyle.fill;
 
     final path = Path();
     path.moveTo(size.width * 0.2, size.height); // Bottom-left
@@ -884,11 +896,12 @@ class _ARPathPainter extends CustomPainter {
     for (double y = startY; y > endY; y -= step) {
       final progress = (startY - y) / (startY - endY);
       final scale = 1.0 - progress * 0.6; // From 1.0 to 0.4
-      final opacity = 1.0 - progress;     // From 1.0 to 0.0
+      final opacity = 1.0 - progress; // From 1.0 to 0.0
 
-      final arrowPaint = Paint()
-        ..color = Colors.white.withOpacity(opacity)
-        ..style = PaintingStyle.fill;
+      final arrowPaint =
+          Paint()
+            ..color = Colors.white.withOpacity(opacity)
+            ..style = PaintingStyle.fill;
 
       // Use canvas transform to scale without changing base dimensions
       canvas.save();
