@@ -39,4 +39,6 @@ class MyImages {
   //
   //dummies
   static const String tinder = "assets/images/tinder.jpeg";
+  static const String museum = "assets/images/art_museum.jpeg";
+  static const String library = "assets/images/library.webp";
 }

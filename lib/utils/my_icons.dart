@@ -51,4 +51,9 @@ class MyIcons {
 
   static const String send = "assets/icons/send.svg";
   static const String fullScreen = "assets/icons/full-screen.svg";
+
+
+  static const String turnLeft = "assets/icons/turn-left.svg";
+  static const String turnRight = "assets/icons/turn-right.svg";
+  static const String forward = "assets/icons/arrow-forward.svg";
 }
