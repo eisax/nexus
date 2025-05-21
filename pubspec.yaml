@@ -34,6 +34,7 @@ dependencies:
   flutter_compass: ^0.8.1
   flutter_tts: ^3.8.5
   audioplayers: ^5.2.1
+  model_viewer_plus: ^1.9.3
 
 dev_dependencies:
   flutter_test:
@@ -56,3 +57,6 @@ flutter:
     - assets/images/devices/
     - assets/sounds/
     - assets/json/points.json
+    - assets/models/carArrow.glb
+    - assets/models/arrow_icon_flat_style_direction_pointer_symbol.glb
+    - assets/models/direction_arrow.glb

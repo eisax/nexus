@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:model_viewer_plus/model_viewer_plus.dart';
 import 'package:nexus/data/json/findPath.dart';
 import 'package:nexus/data/json/pointsgraph.dart';
 import 'package:nexus/data/models/points.dart';
@@ -317,9 +318,7 @@ class _NavigationOverlayWidgetState extends State<NavigationOverlayWidget> {
       _isDirectionCorrect = isOnCourse;
     });
 
-    if (_currentStepIndex < _currentRoute.length) {
-      
-    }
+    if (_currentStepIndex < _currentRoute.length) {}
 
     // Give voice instructions
     if (distanceToNextPoint <= 5.0) {
@@ -365,8 +364,6 @@ class _NavigationOverlayWidgetState extends State<NavigationOverlayWidget> {
       _traversedPoints = [];
       _navigationStartTime = DateTime.now();
     });
-
-   
 
     try {
       // Initialize audio
@@ -875,27 +872,26 @@ class _NavigationOverlayWidgetState extends State<NavigationOverlayWidget> {
         // Large Directional Arrow
         if (_currentStepIndex < _currentRoute.length)
           Center(
-            child: Transform.rotate(
-              angle: (_expectedHeading - (_currentHeading ?? 0)) * (pi / 180),
-              child: Container(
-                width: 200,
-                height: 200,
-                decoration: BoxDecoration(color: Colors.transparent),
-                child: CustomPaint(
-                  painter: DirectionArrowPainter(
-                    color: _isDirectionCorrect ? Colors.green : Colors.red,
-                  ),
-                ),
+            child: Container(
+              width: 400,
+              height: 400,
+              child: ModelViewer(
+                backgroundColor: Colors.transparent,
+                src: 'assets/models/carArrow.glb',
+                alt: 'A 3D model of an arrow',
+                ar: false,
+                autoRotate: false,
+                iosSrc:
+                    'https://modelviewer.dev/shared-assets/models/Astronaut.usdz',
+                disableZoom: true,
               ),
             ),
           ),
 
-        // Blue AR path with arrows (placeholder)
         Positioned.fill(
           bottom: 0,
           child: IgnorePointer(child: CustomPaint(painter: _ARPathPainter())),
         ),
-        // Floating round action buttons
         Positioned(
           right: 18,
           bottom: 150,
