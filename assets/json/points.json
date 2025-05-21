@@ -1,0 +1,284 @@
+[
+  {
+    "point": 1,
+    "latitude": -17.35537104,
+    "longitude": 30.20717628,
+    "name": "Main Gate"
+  },
+  {
+    "point": 2,
+    "latitude": -17.35530375,
+    "longitude": 30.20715328,
+    "name": "After gate"
+  },
+  {
+    "point": 3,
+    "latitude": -17.35461269,
+    "longitude": 30.20742215,
+    "name": "BEFORE 30 km/hr pag"
+  },
+  {
+    "point": 4,
+    "latitude": -17.35461269,
+    "longitude": 30.20745055,
+    "name": "Before admin hump"
+  },
+  {
+    "point": 5,
+    "latitude": -17.35461399,
+    "longitude": 30.20743239,
+    "name": "Before admin"
+  },
+  {
+    "point": 6,
+    "latitude": -17.35428037,
+    "longitude": 30.20749035,
+    "name": "Neat Admin"
+  },
+  {
+    "point": 7,
+    "latitude": -17.35422476,
+    "longitude": 30.2075055,
+    "name": "Close to admin"
+  },
+  {
+    "point": 8,
+    "latitude": -17.3542164,
+    "longitude": 30.20753471,
+    "name": "Admin"
+  },
+  {
+    "point": 9,
+    "latitude": -17.3541012,
+    "longitude": 30.2075091,
+    "name": "After Admin"
+  },
+  {
+    "point": 10,
+    "latitude": -17.35325789,
+    "longitude": 30.20776166,
+    "name": "Car Park In"
+  },
+  {
+    "point": 11,
+    "latitude": -17.3533439,
+    "longitude": 30.207227,
+    "name": "Car Park"
+  },
+  {
+    "point": 12,
+    "latitude": -17.35337713,
+    "longitude": 30.20773458,
+    "name": "Flags"
+  },
+  {
+    "point": 13,
+    "latitude": -17.35286411,
+    "longitude": 30.20792532,
+    "name": "Car Park Out"
+  },
+  {
+    "point": 14,
+    "latitude": -17.35268934,
+    "longitude": 30.20788176,
+    "name": "Before LT Hump"
+  },
+  {
+    "point": 15,
+    "latitude": -17.3525706,
+    "longitude": 30.20788758,
+    "name": "Lecture Theatre"
+  },
+  {
+    "point": 16,
+    "latitude": -17.35208136,
+    "longitude": 30.20806234,
+    "name": "Marketing Offices"
+  },
+  {
+    "point": 17,
+    "latitude": -17.35181296,
+    "longitude": 30.20819688,
+    "name": "Block 5"
+  },
+  {
+    "point": 18,
+    "latitude": -17.35181193,
+    "longitude": 30.20819881,
+    "name": "Block 8"
+  },
+  {
+    "point": 19,
+    "latitude": -17.35148953,
+    "longitude": 30.20824945,
+    "name": "Block 9"
+  },
+  {
+    "point": 20,
+    "latitude": -17.35126472,
+    "longitude": 30.20834805,
+    "name": "Block 10"
+  },
+  {
+    "point": 21,
+    "latitude": -17.35106314,
+    "longitude": 30.20839798,
+    "name": "Block 18 Crop Science Lab"
+  },
+  {
+    "point": 22,
+    "latitude": -17.35064653,
+    "longitude": 30.20853227,
+    "name": "Control"
+  },
+  {
+    "point": 23,
+    "latitude": -17.3500679,
+    "longitude": 30.20867911,
+    "name": "Old Engineering Block"
+  },
+  {
+    "point": 24,
+    "latitude": -17.34958408,
+    "longitude": 30.20863159,
+    "name": "Research Labs"
+  },
+  {
+    "point": 25,
+    "latitude": -17.34934023,
+    "longitude": 30.20884092,
+    "name": "Dining Hall"
+  },
+  {
+    "point": 26,
+    "latitude": -17.34934002,
+    "longitude": 30.20884092,
+    "name": "Boys Hostel Turn off"
+  },
+  {
+    "point": 27,
+    "latitude": -17.34924417,
+    "longitude": 30.20834792,
+    "name": "Before Clinic"
+  },
+  {
+    "point": 28,
+    "latitude": -17.34924417,
+    "longitude": 30.20834792,
+    "name": "Clinic"
+  },
+  {
+    "point": 29,
+    "latitude": -17.34914653,
+    "longitude": 30.20806457,
+    "name": "Girls Hostel Turn Off"
+  },
+  {
+    "point": 30,
+    "latitude": -17.34922205,
+    "longitude": 30.20763734,
+    "name": "Power Station"
+  },
+  {
+    "point": 31,
+    "latitude": -17.34950372,
+    "longitude": 30.20740052,
+    "name": "Pre Fabs"
+  },
+  {
+    "point": 32,
+    "latitude": -17.3498405,
+    "longitude": 30.20707009,
+    "name": "New Eng Turn Off"
+  },
+  {
+    "point": 33,
+    "latitude": -17.35038256,
+    "longitude": 30.20677072,
+    "name": "Out Curve"
+  },
+  {
+    "point": 34,
+    "latitude": -17.35044495,
+    "longitude": 30.20677072,
+    "name": "In Curve"
+  },
+  {
+    "point": 35,
+    "latitude": -17.35056365,
+    "longitude": 30.20678897,
+    "name": "After Curve"
+  },
+  {
+    "point": 36,
+    "latitude": -17.35056576,
+    "longitude": 30.20679459,
+    "name": "Block 11 Lavatories"
+  },
+  {
+    "point": 37,
+    "latitude": -17.35082955,
+    "longitude": 30.20654909,
+    "name": "Block 11"
+  },
+  {
+    "point": 38,
+    "latitude": -17.35117818,
+    "longitude": 30.20655205,
+    "name": "Block 12"
+  },
+  {
+    "point": 39,
+    "latitude": -17.35148387,
+    "longitude": 30.20653902,
+    "name": "Block 7"
+  },
+  {
+    "point": 40,
+    "latitude": -17.35171241,
+    "longitude": 30.20653671,
+    "name": "Bank In Curve CURVE"
+  },
+  {
+    "point": 41,
+    "latitude": -17.35191991,
+    "longitude": 30.20655712,
+    "name": "Bank Curve"
+  },
+  {
+    "point": 42,
+    "latitude": -17.35192258,
+    "longitude": 30.20658172,
+    "name": "Bank After Curve"
+  },
+  {
+    "point": 43,
+    "latitude": -17.35194241,
+    "longitude": 30.20664924,
+    "name": "Zb Bank Offices"
+  },
+  {
+    "point": 44,
+    "latitude": -17.35214269,
+    "longitude": 30.20663953,
+    "name": "Great Hall"
+  },
+  {
+    "point": 45,
+    "latitude": -17.35207523,
+    "longitude": 30.20703834,
+    "name": "Zb Bank"
+  },
+  {
+    "point": 46,
+    "latitude": -17.35207483,
+    "longitude": 30.20705163,
+    "name": "ICT Offices"
+  },
+  {
+    "point": 47,
+    "latitude": -17.35208504,
+    "longitude": 30.2075041,
+    "name": "Campus Kiosk"
+  }
+]

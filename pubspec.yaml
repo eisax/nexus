@@ -55,3 +55,4 @@ flutter:
     - assets/images/background/
     - assets/images/devices/
     - assets/sounds/
+    - assets/json/points.json
